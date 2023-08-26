@@ -1,7 +1,6 @@
+import Footer from "../../components/Footer/Footer";
 import Content from "./Slider/Content/Content";
 import Slider from "./Slider/Slider";
-
-import "./home.css";
 
 const HomePage = () => {
 
@@ -9,9 +8,7 @@ const HomePage = () => {
         <main className="home-page">
             <Slider />
             <Content />
-            <footer className="footer">
-                
-            </footer>
+            <Footer />
         </main>
     );
 };
