@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10vw;
+    border-bottom: 1px solid #000000;
+    background: #253238;
+    color: #ffffff;
+}
+
+.header__logo {
+    font-size: 28px;
+    user-select: none;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__link {
+    display: inline-block;
+    margin-right: 40px;
+
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navigation__link:hover {
+    color: #dadada;
+    text-decoration: underline;
+}
+
+.navigation__link--selected {
+    color: #dadada;
+    text-decoration: underline;
+}
+
+.header__contacts {
+    font-size: 15px;
+}

@@ -1,0 +1,46 @@
+.home-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20vw 30px 20vw;
+    flex-direction: column;
+}
+
+.content__row{
+    display: inline-block;
+    margin: 30px 0px 30px 0px;
+    font-size: 19px;
+}
+
+.content__img{
+    width: 200px;
+    height: 200px;
+}
+
+.content__img--left{
+    float: left;
+    margin-right: 10px;
+}
+
+.content__img--right{
+    float: right;
+    margin-left: 10px;
+}
+
+.content__map{
+    width: 60vw;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.content__time{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__time ul{
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+}
