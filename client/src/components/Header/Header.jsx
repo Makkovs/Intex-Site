@@ -9,9 +9,9 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="header__logo">
+            <NavLink className="header__logo" to={HOME_ROUTE}>
                 <h1>INTEX</h1>
-            </div>
+            </NavLink>
             <nav className="navigation">
                 <NavLink
                     className={location.pathname === HOME_ROUTE

@@ -62,7 +62,7 @@ const Slider = () => {
             />
             <SlideInfo
                 id={"second"}
-                slideTitle={"Фотодрук"}
+                slideTitle={"Канцелярія"}
                 slideDescription={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit quia nemo id nostrum hic dicta, repellat provident? Repudiandae, accusamus! Temporibus!`}
                 slideFooterTitle={""}
                 slideButton={"Каталог"}
@@ -70,8 +70,8 @@ const Slider = () => {
                 slideLinkPath={CATALOGE_ROUTE}
             />
             <div className="galery__buttons">
-                <label className="galery__button btn1" htmlFor="slide1"></label>
-                <label className="galery__button btn2" htmlFor="slide2"></label>
+                <label className="galery__button galery__button--btn1" htmlFor="slide1"></label>
+                <label className="galery__button galery__button--btn2" htmlFor="slide2"></label>
             </div>
             <div className="decrement-button arrow-button" onClick={decrementRadio}></div>
             <div className="increment-button arrow-button" onClick={incrementRadio}></div>

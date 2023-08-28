@@ -1,17 +1,15 @@
 .content-sides{
     background: #f5f5f5;
 }
+
 .home-content{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin: 0px 10vw 0px 10vw;
     padding: 20px 10vw 30px 10vw;
-    flex-direction: column;
     background: #ffffff;
-    border: 1px solid black;
-    border-top: none;
-    border-bottom: none;
 }
 
 .content__row{

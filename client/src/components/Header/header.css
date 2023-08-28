@@ -11,6 +11,8 @@
 .header__logo {
     font-size: 28px;
     user-select: none;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .navigation {

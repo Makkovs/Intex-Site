@@ -41,8 +41,8 @@
     background: #d3d3d3;
 }
 
-#slide1:checked~.galery__buttons .btn1,
-#slide2:checked~.galery__buttons .btn2 {
+#slide1:checked~.galery__buttons .galery__button--btn1,
+#slide2:checked~.galery__buttons .galery__button--btn2 {
     background: #ffffff;
 }
 
