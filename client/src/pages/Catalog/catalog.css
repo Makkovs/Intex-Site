@@ -1,0 +1,72 @@
+.catalog {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5vw 20px 5vw;
+}
+
+.catalog__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 200px 50px 30px;
+}
+
+.navigation__radio {
+    display: none;
+}
+
+.sort-button {
+    border: 1px solid #000000;
+    padding: 10px;
+}
+
+.sort-button--left {
+    border-right: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.sort-button--right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#cheap:checked ~ .sort-buttons .sort-button--left,
+#expansive:checked ~ .sort-buttons .sort-button--right {
+    color: #ffffff;
+    background: #253238;
+}
+
+.sort-search{
+    padding: 5px;
+    border: 1px solid #000000;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.catalog__content {
+    display: flex;
+}
+
+.catalog__filters{
+    padding: 10px 20px 20px 20px;
+    text-align: center;
+}
+
+.filter__title{
+    margin: 10px 0px 10px 0px;
+}
+
+.catalog__merch {
+    display: flex;
+    padding: 20px 20px 20px 70px;
+}
+
+.merch {
+    margin-right: 20px;
+}
+
+.merch__img {
+    width: 180px;
+    height: 180px;
+}

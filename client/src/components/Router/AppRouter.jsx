@@ -6,14 +6,12 @@ import { HOME_ROUTE } from "../../utils/consts";
 
 const AppRouter = () => {
     return ( 
-        <div>
-            <Routes>
-                {router.map(({path, Component}) => 
-                    <Route key={path} path={path} element={<Component/>} exact/>
-                )}
-                <Route path='*' element={<Navigate to={HOME_ROUTE}/>} />
-            </Routes>
-        </div>
+        <Routes>
+            {router.map(({path, Component}) => 
+                <Route key={path} path={path} element={<Component/>} exact/>
+            )}
+            <Route path='*' element={<Navigate to={HOME_ROUTE}/>} />
+        </Routes>
     );
 };
 
