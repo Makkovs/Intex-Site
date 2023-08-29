@@ -1,0 +1,41 @@
+.catalog__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 200px 50px 30px;
+}
+
+.navigation__radio {
+    display: none;
+}
+
+.sort-button {
+    cursor: pointer;
+    border: 1px solid #000000;
+    padding: 10px;
+    transition: background-color 0.2s;
+}
+
+.sort-button--left {
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.sort-button--right {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#cheap:checked~.sort-buttons .sort-button--left,
+#expansive:checked~.sort-buttons .sort-button--right {
+    color: #ffffff;
+    background: #253238;
+}
+
+.sort-search {
+    padding: 5px;
+    border: 1px solid #000000;
+    font-size: 18px;
+    border-radius: 10px;
+}
