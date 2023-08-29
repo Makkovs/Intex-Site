@@ -17,6 +17,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -24,6 +25,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -31,6 +33,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -38,6 +41,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -45,6 +49,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -52,6 +57,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                     <CatalogMerch
                         name={"Title"}
@@ -59,6 +65,7 @@ const CatalogPage = () => {
                         price={199}
                         category={"Категорія"}
                         company={"Виробник"}
+                        id={0}
                     />
                 </section>
             </article>

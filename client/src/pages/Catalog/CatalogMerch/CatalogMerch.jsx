@@ -1,7 +1,8 @@
+import { MERCH_PAGE_ROUTE } from "../../../utils/consts";
 import "./catalog-merch.css";
 import { Link } from "react-router-dom";
 
-const CatalogMerch = ({ name, status, price, category, company }) => {
+const CatalogMerch = ({ name, status, price, category, company, id}) => {
 
     return (
         <div className="merch">
@@ -37,7 +38,7 @@ const CatalogMerch = ({ name, status, price, category, company }) => {
                     {company}
                 </div>
             </div>
-            <Link className="merch__view-button">
+            <Link className="merch__view-button" to={MERCH_PAGE_ROUTE + `/${id}`}>
                 Переглянути
             </Link>
         </div>
