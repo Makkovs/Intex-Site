@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "./catalog.css";
+import OrbCheckbox from "../../components/UI/OrbCheckbox/OrbCheckbox";
 
 const CatalogPage = () => {
 
@@ -28,25 +29,45 @@ const CatalogPage = () => {
                         Дорожче
                     </label>
                 </div>
-                <input className="sort-search" type="text" placeholder="search"/>
+                <input className="sort-search" type="text" placeholder="Search" />
             </nav>
             <article className="catalog__content">
                 <aside className="catalog__filters">
                     <div className="categories">
                         <h3 className="filter__title">Категорії</h3>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
                     </div>
                     <div className="companies">
                         <h3 className="filter__title">Виробники</h3>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
-                        <div className="catalog__filter">Filter</div>
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
+                        <span className="catalog__filter">
+                            <OrbCheckbox text={"filter"} />
+                        </span><br />
                     </div>
                 </aside>
                 <section className="catalog__merch">
