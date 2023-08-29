@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 import "./catalog.css";
 import OrbCheckbox from "../../components/UI/OrbCheckbox/OrbCheckbox";
@@ -74,8 +75,22 @@ const CatalogPage = () => {
                     <div className="merch">
                         <img className="merch__img" src="./gray-img.png" alt="" />
                         <h3 className="merch__name">Title</h3>
-                        <h4 className="merch__price">999$</h4>
-                        <h4 className="status">В наявності</h4>
+                        <div className="merch__info">
+                            <div className="merch__status merch__status--green">
+                                В наявності
+                            </div>
+                            <div className="merch__price">
+                                999$
+                            </div>
+                        </div>
+                        <div className="merch__info">
+                            <div className="merch__category">
+                                Зошит
+                            </div>
+                            <div className="merch__company">
+                                Виробник
+                            </div>
+                        </div>
                         <Link className="merch__view-button">
                             Переглянути
                         </Link>
@@ -83,8 +98,22 @@ const CatalogPage = () => {
                     <div className="merch">
                         <img className="merch__img" src="./gray-img.png" alt="" />
                         <h3 className="merch__name">Title</h3>
-                        <h4 className="merch__price">999$</h4>
-                        <h4 className="status">В наявності</h4>
+                        <div className="merch__info">
+                            <div className="merch__status merch__status--green">
+                                В наявності
+                            </div>
+                            <div className="merch__price">
+                                999$
+                            </div>
+                        </div>
+                        <div className="merch__info">
+                            <div className="merch__category">
+                                Зошит
+                            </div>
+                            <div className="merch__company">
+                                Виробник
+                            </div>
+                        </div>
                         <Link className="merch__view-button">
                             Переглянути
                         </Link>
@@ -92,8 +121,22 @@ const CatalogPage = () => {
                     <div className="merch">
                         <img className="merch__img" src="./gray-img.png" alt="" />
                         <h3 className="merch__name">Title</h3>
-                        <h4 className="merch__price">999$</h4>
-                        <h4 className="status">В наявності</h4>
+                        <div className="merch__info">
+                            <div className="merch__status merch__status--red">
+                                Немає в наявності
+                            </div>
+                            <div className="merch__price">
+                                999$
+                            </div>
+                        </div>
+                        <div className="merch__info">
+                            <div className="merch__category">
+                                Зошит
+                            </div>
+                            <div className="merch__company">
+                                Виробник
+                            </div>
+                        </div>
                         <Link className="merch__view-button">
                             Переглянути
                         </Link>

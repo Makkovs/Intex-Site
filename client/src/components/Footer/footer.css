@@ -5,4 +5,8 @@
     background: #253238;
     color: #ffffff;
     font-size: 15px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

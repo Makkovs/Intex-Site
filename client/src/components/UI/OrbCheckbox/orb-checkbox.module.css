@@ -7,6 +7,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: background-color 0.2s;
 }
 
 .container input {
@@ -39,10 +40,6 @@
 
 .container input:checked~.checkmark:after {
     display: block;
-}
-
-.container input:checked~.text{
-    text-decoration: line-through;
 }
 
 .container .checkmark:after {
