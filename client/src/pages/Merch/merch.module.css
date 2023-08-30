@@ -1,0 +1,45 @@
+.content {
+    margin: 0px 15vw 0px 15vw;
+    padding: 20px 0px 20px 0px;
+}
+
+.information {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.galery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    height: 400px;
+    width: 800px;
+}
+
+.slide {
+    max-height: 400px;
+    max-width: 600px;
+}
+
+.generalInformation {
+    min-width: 250px;
+    margin-left: 20px;
+    padding: 20px 20px 20px 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
+.greenStatus {
+    font-size: 15px;
+    color: #348008;
+}
+
+.redStatus {
+    font-size: 15px;
+    color: #9e0a0a;
+}

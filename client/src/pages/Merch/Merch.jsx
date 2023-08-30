@@ -1,28 +1,39 @@
-import "./merch.css";
+import Button from "../../components/UI/Button/Button";
+import styles from "./merch.module.css";
 
 const Merch = () => {
 
+    const testVariable = true
+
     return (
-        <main className="merch-page">
-            <div className="merch-info">
-                <div className="merch-page__galery">
+        <main className={styles.content}>
+            <div className={styles.information}>
+                <div className={styles.galery}>
                     <img
-                        className="merch-galery__slide"
+                        className={styles.slide}
                         src="../gray-img.png"
                         alt=""
                     />
                 </div>
-                <div className="merch-page__info">
-                    <h3>Title</h3>
-                    <div className="info__status">
+                <div className={styles.generalInformation}>
+                    <h1 className={styles.name}>Title</h1>
+                    <span 
+                        className={testVariable 
+                            ? styles.greenStatus 
+                            : styles.redStatus
+                        }
+                    >
                         В наявності
-                    </div>
-                    <div className="info__price">
-                        999грн
-                    </div>
-                    <button className="info__buy">
+                    </span>
+                    <h1 className={styles.price}>
+                        500грн
+                    </h1>
+                    <Button>
                         Додати у кошик
-                    </button>
+                    </Button>
+                    <Button style={{marginLeft: "5px"}}>
+                        Замовити
+                    </Button>
                 </div>
             </div>
             <div className="merch__description">

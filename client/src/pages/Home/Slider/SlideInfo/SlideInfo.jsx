@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import Button from "../../../../components/UI/Button/Button";
 import styles from "./slide-info.module.css";
 
 const SlideInfo = ({ id, slideTitle, slideDescription, slideFooterTitle, slideButton, background, slideLinkPath }) => {
@@ -20,8 +20,10 @@ const SlideInfo = ({ id, slideTitle, slideDescription, slideFooterTitle, slideBu
                     <h2 className={styles.slideTitle}>
                         {slideFooterTitle}
                     </h2>}
-                <Link className={styles.slideButton} to={slideLinkPath}>
-                    {slideButton}
+                <Link to={slideLinkPath}>
+                    <Button style={{marginTop: "20px"}}>
+                        {slideButton}
+                    </Button>
                 </Link>
             </section>
         </section>

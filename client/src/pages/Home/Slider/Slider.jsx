@@ -34,7 +34,7 @@ const Slider = () => {
     };
 
     return (
-        <article className="home__slider">
+        <article>
             <input
                 className={styles.radio}
                 name="point"

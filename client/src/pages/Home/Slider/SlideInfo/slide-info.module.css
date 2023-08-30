@@ -31,22 +31,6 @@
     line-height: 1.5;
 }
 
-.slideButton {
-    margin-top: 20px;
-    padding: 10px 10px;
-    color: #ffffff;
-    font-size: 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 10px;
-    background: #253238;
-    transition: background 0.3s;
-}
-
-.slideButton:hover {
-    background: #3f555f;
-}
-
 .first,
 .second {
     background-blend-mode: multiply;

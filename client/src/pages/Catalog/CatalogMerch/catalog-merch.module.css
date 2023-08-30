@@ -47,17 +47,3 @@
 .redStatus {
     color: #9e0a0a;
 }
-
-.viewButton {
-    color: #ffffff;
-    text-decoration: none;
-    margin-top: 20px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    background: #253238;
-    transition: background 0.2s;
-}
-
-.viewButton:hover {
-    background: #435b66;
-}

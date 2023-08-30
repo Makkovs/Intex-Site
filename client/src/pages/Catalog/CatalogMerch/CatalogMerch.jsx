@@ -1,6 +1,7 @@
 import { MERCH_PAGE_ROUTE } from "../../../utils/consts";
 import { Link } from "react-router-dom";
 import styles from "./catalog-merch.module.css";
+import Button from "../../../components/UI/Button/Button";
 
 const CatalogMerch = ({ name, status, price, category, company, id }) => {
 
@@ -38,8 +39,10 @@ const CatalogMerch = ({ name, status, price, category, company, id }) => {
                     {company}
                 </div>
             </div>
-            <Link className={styles.viewButton} to={MERCH_PAGE_ROUTE + `/${id}`}>
-                Переглянути
+            <Link to={MERCH_PAGE_ROUTE + `/${id}`}>
+                <Button style={{marginTop: "20px"}}>
+                    Переглянути
+                </Button>
             </Link>
         </div>
     );
