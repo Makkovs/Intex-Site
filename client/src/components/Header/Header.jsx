@@ -2,21 +2,21 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import { AUTH_ROUTE, CATALOGE_ROUTE, HOME_ROUTE } from "../../utils/consts";
 
-import "./header.css";
+import styles from "./header.module.css";
 
 const Header = () => {
     const location = useLocation();
 
     return (
-        <header className="header">
-            <NavLink className="header__logo" to={HOME_ROUTE}>
+        <header className={styles.header}>
+            <NavLink className={styles.logo} to={HOME_ROUTE}>
                 <h1>INTEX</h1>
             </NavLink>
-            <nav className="navigation">
+            <nav className={styles.navigation}>
                 <NavLink
                     className={location.pathname === HOME_ROUTE
-                        ? "navigation__link navigation__link--selected"
-                        : "navigation__link"
+                        ? [styles.link, styles.selectedLink].join(" ")
+                        : styles.link
                     }
                     to={HOME_ROUTE}
                 >
@@ -24,8 +24,8 @@ const Header = () => {
                 </NavLink>
                 <NavLink
                     className={location.pathname === CATALOGE_ROUTE
-                        ? "navigation__link navigation__link--selected"
-                        : "navigation__link"
+                        ? [styles.link, styles.selectedLink].join(" ")
+                        : styles.link
                     }
                     to={CATALOGE_ROUTE}
                 >
@@ -33,17 +33,17 @@ const Header = () => {
                 </NavLink>
                 <NavLink
                     className={location.pathname === AUTH_ROUTE
-                        ? "navigation__link navigation__link--selected"
-                        : "navigation__link"
+                        ? [styles.link, styles.selectedLink].join(" ")
+                        : styles.link
                     }
                     to={AUTH_ROUTE}
                 >
                     Увійти
                 </NavLink>
-                <div className="header__contacts">
-                    <span className="contacts_mail">mail123@gmail.com</span>
+                <div className={styles.contacts}>
+                    <span>mail123@gmail.com</span>
                     <br />
-                    <span className="contacts__phone">+380123456789</span>
+                    <span>+380123456789</span>
                 </div>
             </nav>
         </header>

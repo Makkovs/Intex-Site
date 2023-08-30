@@ -1,15 +1,15 @@
-.catalog__filters {
+.filters {
     padding: 10px 50px 20px 50px;
     background: #ffffff;
     border-radius: 10px;
 }
 
-.filter__title {
+.title {
     margin: 10px 0px 0px 0px;
     font-size: 23px;
 }
 
-.catalog__filter {
+.filter {
     display: inline-block;
     margin: 10px 0px 0px 0px;
 }

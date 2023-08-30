@@ -1,25 +1,26 @@
 import { Link } from "react-router-dom";
 
-import "./slide-info.css";
+import styles from "./slide-info.module.css";
 
 const SlideInfo = ({ id, slideTitle, slideDescription, slideFooterTitle, slideButton, background, slideLinkPath }) => {
 
     return (
         <section
-            className={`home__slide home__slide--${id}`}
+            className={[styles.homeSlide, styles[id]].join(" ")}
             style={{ background: `url("${background}") 50%/cover no-repeat, #a8a8a8` }}
         >
-            <section className="slide__info">
-                <h2 className="slide__title">
+            <section className={styles.slideInfo}>
+                <h2 className={styles.slideTitle}>
                     {slideTitle}
                 </h2>
-                <p className="slide__description">
+                <p className={styles.slideDescription}>
                     {slideDescription}
                 </p>
-                <h2 className="slide__title">
-                    {slideFooterTitle}
-                </h2>
-                <Link className="slide__button" to={slideLinkPath}>
+                {slideFooterTitle &&
+                    <h2 className={styles.slideTitle}>
+                        {slideFooterTitle}
+                    </h2>}
+                <Link className={styles.slideButton} to={slideLinkPath}>
                     {slideButton}
                 </Link>
             </section>

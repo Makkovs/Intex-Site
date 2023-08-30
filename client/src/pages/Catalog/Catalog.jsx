@@ -1,16 +1,16 @@
-import "./catalog.css";
-
 import CatalogNav from "./CatalogNav/CatalogNav";
 import CatalogAside from "./CatalogAside/CatalogAside";
 import CatalogMerch from "./CatalogMerch/CatalogMerch";
 
+import styles from "./catalog.module.css";
+
 const CatalogPage = () => {
     return (
-        <main className="catalog">
+        <main className={styles.catalog}>
             <CatalogNav />
-            <article className="catalog__content">
+            <article className={styles.content}>
                 <CatalogAside />
-                <section className="catalog__merch">
+                <section className={styles.merchCatalog}>
                     <CatalogMerch
                         name={"Title"}
                         status={true}
@@ -69,8 +69,8 @@ const CatalogPage = () => {
                     />
                 </section>
             </article>
-        </main> 
-    ); 
-}; 
- 
-export default  CatalogPage;
+        </main>
+    );
+};
+
+export default CatalogPage;

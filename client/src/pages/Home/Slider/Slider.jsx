@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { CATALOGE_ROUTE, HOME_ROUTE } from "../../../utils/consts";
 import SlideInfo from "./SlideInfo/SlideInfo";
 
-import "./slider.css";
+import styles from "./slider.module.css";
 
 const Slider = () => {
 
@@ -34,19 +34,19 @@ const Slider = () => {
     };
 
     return (
-        <article className="home__galery">
+        <article className="home__slider">
             <input
-                className="galery__radio"
+                className={styles.radio}
                 name="point"
-                id="slide1"
+                id="slider-slide1"
                 type="radio"
                 ref={slide1Radio}
                 onClick={() => setSelectedRadio(0)}
             />
             <input
-                className="galery__radio"
+                className={styles.radio}
                 name="point"
-                id="slide2"
+                id="slider-slide2"
                 type="radio"
                 ref={slide2Radio}
                 onClick={() => setSelectedRadio(1)}
@@ -69,12 +69,24 @@ const Slider = () => {
                 background={"https://img.freepik.com/free-photo/top-view-of-back-to-school-stationery-with-backpack-and-copy-space_23-2148587545.jpg?w=996&t=st=1692351953~exp=1692352553~hmac=d7b5b39c45ca483604f49fd624a62fcf4f145b617aa25ff256009c23736e18f3"}
                 slideLinkPath={CATALOGE_ROUTE}
             />
-            <div className="galery__buttons">
-                <label className="galery__button galery__button--btn1" htmlFor="slide1"></label>
-                <label className="galery__button galery__button--btn2" htmlFor="slide2"></label>
+            <div className={styles.galeryButtons}>
+                <label
+                    className={[styles.galeryButton, styles.galeryButton1].join(" ")}
+                    htmlFor={"slider-slide1"}
+                ></label>
+                <label
+                    className={[styles.galeryButton, styles.galeryButton2].join(" ")}
+                    htmlFor={"slider-slide2"}
+                ></label>
             </div>
-            <div className="decrement-button arrow-button" onClick={decrementRadio}></div>
-            <div className="increment-button arrow-button" onClick={incrementRadio}></div>
+            <div
+                className={[styles.arrowButton, styles.decrementButton].join(" ")}
+                onClick={decrementRadio}
+            ></div>
+            <div
+                className={[styles.arrowButton, styles.incrementButton].join(" ")}
+                onClick={incrementRadio}
+            ></div>
         </article>
     );
 };

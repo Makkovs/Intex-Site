@@ -1,4 +1,4 @@
-.home-content{
+.content{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,41 +8,41 @@
     background: #ffffff;
 }
 
-.content__row{
+.row{
     display: inline-block;
     margin: 30px 0px 30px 0px;
     font-size: 19px;
 }
 
-.content__img{
+.image{
     width: 200px;
     height: 200px;
 }
 
-.content__img--left{
+.leftImage{
     float: left;
     margin-right: 10px;
 }
 
-.content__img--right{
+.rightImage{
     float: right;
     margin-left: 10px;
 }
 
-.content__map{
+.shedule{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sheduleRow{
+    display: inline-block;
+    text-align: center;
+    list-style-type: none;
+}
+
+.map{
     width: 60vw;
     height: 300px;
     border: 1px solid black;
-}
-
-.content__time{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.content__time ul{
-    display: inline-block;
-    list-style-type: none;
-    text-align: center;
 }

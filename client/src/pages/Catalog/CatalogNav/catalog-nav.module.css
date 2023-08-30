@@ -1,39 +1,40 @@
-.catalog__navigation {
+.navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 50px 200px 50px 30px;
 }
 
-.navigation__radio {
+
+.radio {
     display: none;
 }
 
-.sort-button {
+.sortButton {
     cursor: pointer;
-    border: 1px solid #000000;
     padding: 10px;
+    border: 1px solid #000000;
     transition: background-color 0.2s;
 }
 
-.sort-button--left {
+.leftButton {
     border-right: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.sort-button--right {
+.rightButton {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-#cheap:checked~.sort-buttons .sort-button--left,
-#expansive:checked~.sort-buttons .sort-button--right {
+#cheap:checked~.sortButtons .leftButton,
+#expansive:checked~.sortButtons .rightButton {
     color: #ffffff;
     background: #253238;
 }
 
-.sort-search {
+.searchInput {
     padding: 5px;
     border: 1px solid #000000;
     font-size: 18px;

@@ -8,7 +8,7 @@
     color: #ffffff;
 }
 
-.header__logo {
+.logo {
     font-size: 28px;
     user-select: none;
     color: #ffffff;
@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-.navigation__link {
+.link {
     display: inline-block;
     margin-right: 40px;
 
@@ -29,16 +29,16 @@
     text-decoration: none;
 }
 
-.navigation__link:hover {
+.link:hover {
     color: #dadada;
     text-decoration: underline;
 }
 
-.navigation__link--selected {
+.selectedLink {
     color: #dadada;
     text-decoration: underline;
 }
 
-.header__contacts {
+.contacts {
     font-size: 15px;
 }

@@ -1,47 +1,47 @@
-import "./catalog-aside.css";
 import OrbCheckbox from "../../../components/UI/OrbCheckbox/OrbCheckbox";
+import styles from "./catalog-aside.module.css";
 
 const CatalogAside = () => {
 
     return (
-        <aside className="catalog__filters">
-            <div className="categories">
-                <h3 className="filter__title">
+        <aside className={styles.filters}>
+            <div>
+                <h3 className={styles.title}>
                     Категорії
                 </h3>
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
             </div>
-            <div className="companies">
-                <h3 className="filter__title">
+            <div>
+                <h3 className={styles.title}>
                     Виробники
                 </h3>
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
-                <span className="catalog__filter">
+                <span className={styles.filter}>
                     <OrbCheckbox text={"filter"} />
                 </span><br />
             </div>

@@ -1,34 +1,34 @@
-import "./catalog-nav.css";
+import styles from "./catalog-nav.module.css";
 
 const CatalogNav = () => {
 
     return (
-        <nav className="catalog__navigation">
+        <nav className={styles.navigation}>
             <input
-                className="navigation__radio"
+                className={styles.radio}
                 name="sort-type"
-                id="cheap"
+                id={styles["cheap"]}
                 type="radio"
                 defaultChecked
             />
             <input
-                className="navigation__radio"
+                className={styles.radio}
                 name="sort-type"
-                id="expansive"
+                id={styles["expansive"]}
                 type="radio"
             />
-            <div className="sort-buttons">
-                <label className="sort-button sort-button--left" htmlFor="cheap">
+            <div className={styles.sortButtons}>
+                <label className={[styles.sortButton, styles.leftButton].join(" ")} htmlFor={styles["cheap"]}>
                     Дешевше
                 </label>
-                <label className="sort-button sort-button--right" htmlFor="expansive">
+                <label className={[styles.sortButton, styles.rightButton].join(" ")} htmlFor={styles["expansive"]}>
                     Дорожче
                 </label>
             </div>
-            <input 
-                className="sort-search" 
+            <input
+                className={styles.searchInput}
                 type="text"
-                placeholder="Search" 
+                placeholder="Search"
             />
         </nav>
     );

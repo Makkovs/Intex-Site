@@ -1,20 +1,14 @@
-.catalog__merch {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 20px 20px 70px;
-}
-
 .merch {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+    margin-right: 20px;
+    padding: 20px;
     height: 330px;
     width: 200px;
     border-radius: 10px;
-    padding: 20px;
     background: #ffffff;
-    margin-right: 20px;
     transition: background 0.2s;
 }
 
@@ -22,48 +16,48 @@
     background: #eeeeee;
 }
 
-.merch__img {
-    width: 180px;
-    height: 180px;
-}
-
-.merch__name {
+.name {
     text-align: center;
 }
 
-.merch__info {
+.info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.merch__status {
-    font-size: 15px;
+.image {
+    width: 180px;
+    height: 180px;
 }
 
-.merch__price {
+.price {
     font-size: 19px;
 }
 
-.merch__status--green {
+.status {
+    font-size: 15px;
+}
+
+.greenStatus {
     color: #348008;
 }
 
-.merch__status--red {
-    color: #9e0a0a
+.redStatus {
+    color: #9e0a0a;
 }
 
-.merch__view-button {
+.viewButton {
     color: #ffffff;
-    margin-top: 20px;
     text-decoration: none;
+    margin-top: 20px;
     padding: 10px 10px 10px 10px;
     border-radius: 10px;
     background: #253238;
     transition: background 0.2s;
 }
 
-.merch__view-button:hover {
+.viewButton:hover {
     background: #435b66;
 }
