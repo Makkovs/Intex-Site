@@ -17,9 +17,9 @@ const Merch = () => {
                 </div>
                 <div className={styles.generalInformation}>
                     <h1 className={styles.name}>Title</h1>
-                    <span 
-                        className={testVariable 
-                            ? styles.greenStatus 
+                    <span
+                        className={testVariable
+                            ? styles.greenStatus
                             : styles.redStatus
                         }
                     >
@@ -31,32 +31,33 @@ const Merch = () => {
                     <Button>
                         Додати у кошик
                     </Button>
-                    <Button style={{marginLeft: "5px"}}>
+                    <Button style={{ marginLeft: "5px" }}>
                         Замовити
                     </Button>
                 </div>
             </div>
-            <div className="merch__description">
-                <h4>Загальні характеристики</h4>
-                <ul className="description__chars">
-                    <li className="char__row">
-                        <div className="char__name">
-                            Виробник
-                        </div>
-                        <div className="char__body">
-                            Агагагага
-                        </div>
-                    </li>
-                    <li className="char__row">
-                        <div className="char__name">
-                            Ще щось
-                        </div>
-                        <div className="char__body">
-                            Там щось
-                        </div>
-                    </li>
-                </ul>
-                <p className="description__text">
+            <ul className={styles.informationBlock}>
+                <h3>Загальні характеристики</h3>
+                <li className={styles.row}>
+                    <div className={styles.charName}>
+                        Виробник:
+                    </div>
+                    <div className={styles.charBody}>
+                        Агагагага
+                    </div>
+                </li>
+                <li className={styles.row}>
+                    <div className={styles.charName}>
+                        Ще щось:
+                    </div>
+                    <div className={styles.charBody}>
+                        Там щось
+                    </div>
+                </li>
+            </ul>
+            <div className={styles.informationBlock}>
+                <h3>Опис</h3>
+                <p className={styles.description}>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus non ratione vitae, natus id quidem dignissimos eligendi, aspernatur doloribus
                     autem adipisci eaque! Amet voluptatum fuga cumque necessitatibus dicta praesentium ipsum perferendis quibusdam enim, neque molestiae qui unde ut
                     veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium,
@@ -64,15 +65,49 @@ const Merch = () => {
                     corporis dolores quidem dolore impedit, distinctio dicta labore soluta, fuga pariatur inventore earum dolorem. Nemo eveniet quia, non molestias eaque sunt.
                 </p>
             </div>
-            <div className="merch__commentaries">
-                <div className="merch__commentary">
-                    <h4 className="commentary__author">
-                        I`m author!
+            <div className={styles.informationBlock}>
+                <h3>Коментарі</h3>
+                <p className={styles.addCommentaryInput} contentEditable suppressContentEditableWarning={true}>Коментар</p>
+                <Button>
+                    Додати
+                </Button>
+            </div>
+            <div className={styles.commentary}>
+                <img className={styles.avatar} src="../gray-img.png" alt="avatar" />
+                <div className={styles.commentaryInfo}>
+                    <h4 className={styles.authorName}>
+                        I'm author!
                     </h4>
                     <p className="commentary__body">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus non ratione vitae, natus id quidem dignissimos eligendi, aspernatur doloribus
                         autem adipisci eaque! Amet voluptatum fuga cumque necessitatibus dicta praesentium ipsum perferendis quibusdam enim, neque molestiae qui unde ut
-                        veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium,
+                        veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium.
+                    </p>
+                </div>
+            </div>
+            <div className={styles.commentary}>
+                <img className={styles.avatar} src="../gray-img.png" alt="avatar" />
+                <div className={styles.commentaryInfo}>
+                    <h4 className={styles.authorName}>
+                        I'm author!
+                    </h4>
+                    <p className="commentary__body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus non ratione vitae, natus id quidem dignissimos eligendi, aspernatur doloribus
+                        autem adipisci eaque! Amet voluptatum fuga cumque necessitatibus dicta praesentium ipsum perferendis quibusdam enim, neque molestiae qui unde ut
+                        veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium.
+                    </p>
+                </div>
+            </div>
+            <div className={styles.commentary}>
+                <img className={styles.avatar} src="../gray-img.png" alt="avatar" />
+                <div className={styles.commentaryInfo}>
+                    <h4 className={styles.authorName}>
+                        I'm author!
+                    </h4>
+                    <p className="commentary__body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus non ratione vitae, natus id quidem dignissimos eligendi, aspernatur doloribus
+                        autem adipisci eaque! Amet voluptatum fuga cumque necessitatibus dicta praesentium ipsum perferendis quibusdam enim, neque molestiae qui unde ut
+                        veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium.
                     </p>
                 </div>
             </div>

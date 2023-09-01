@@ -86,7 +86,7 @@ const Slider = () => {
             <div
                 className={[styles.arrowButton, styles.incrementButton].join(" ")}
                 onClick={incrementRadio}
-            ></div>
+            ></div> 
         </article>
     );
 };
