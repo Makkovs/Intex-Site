@@ -1,0 +1,25 @@
+.informationBlock {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.addCommentaryInput {
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.addCommentaryInput:focus{
+    outline: none !important;
+    background: #f5f5f5;
+}
