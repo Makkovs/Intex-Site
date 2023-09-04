@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import styles from "./catalog-nav.module.css";
+import { BASKET_PAGE_ROUTE } from "../../../utils/consts";
 
 const CatalogNav = () => {
 
@@ -25,11 +27,16 @@ const CatalogNav = () => {
                     Дорожче
                 </label>
             </div>
-            <input
-                className={styles.searchInput}
-                type="text"
-                placeholder="Search"
-            />
+            <div className={styles.search}>
+                <Link to={BASKET_PAGE_ROUTE}>
+                    <img className={styles.basket} src="./basket.png"></img>
+                </Link>
+                <input
+                    className={styles.searchInput}
+                    type="text"
+                    placeholder="Search"
+                />
+            </div>
         </nav>
     );
 };

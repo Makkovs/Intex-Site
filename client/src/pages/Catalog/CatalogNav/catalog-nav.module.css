@@ -5,7 +5,6 @@
     padding: 50px 200px 50px 30px;
 }
 
-
 .radio {
     display: none;
 }
@@ -39,4 +38,21 @@
     border: 1px solid #000000;
     font-size: 18px;
     border-radius: 10px;
+}
+
+.basket {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.basket:hover{
+    border-radius: 20%;
+    background: #ffffff;
+}
+
+.search {
+    display: flex;
 }
