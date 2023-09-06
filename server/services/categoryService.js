@@ -25,7 +25,7 @@ class CategoryService {
     async getAllCategories(limit, offset) {
         const categories = await Category.findAndCountAll({ limit, offset });
         return categories;
-    }
+    };
 };
 
 module.exports = new CategoryService();
