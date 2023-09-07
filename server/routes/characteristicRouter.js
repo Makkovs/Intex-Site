@@ -4,6 +4,6 @@ const router = new Router();
 
 router.post("/create");
 router.post("/delete");
-router.post("/getAll");
+router.post("/get-all");
 
 module.exports = router;

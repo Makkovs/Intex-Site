@@ -7,10 +7,10 @@ class CategoryController {
             const { name } = req.body;
             const category = await categoryService.createCategory(name);
 
-            return res.json({ category })
+            return res.json({ category });
         } catch (error) {
             console.log(error);
-            return res.status(400).json({ error: `${error}` })
+            return res.status(400).json({ error: `${error}` });
         };
     };
 

@@ -25,6 +25,7 @@ const Merch = sequelize.define("merch", {
     name: { type: DataTypes.STRING },
     desc: { type: DataTypes.STRING },
     price: { type: DataTypes.INTEGER, allowNull: false },
+    status: { type: DataTypes.BOOLEAN, allowNull: false }
 });
 
 const Characteristic = sequelize.define("characteristic", {
@@ -60,7 +61,7 @@ Commentary.belongsTo(Commentary);
 module.exports = {
     User,
     Category,
-    Company, 
+    Company,
     Merch,
     Characteristic,
     Commentary
