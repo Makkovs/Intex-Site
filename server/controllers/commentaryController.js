@@ -34,7 +34,7 @@ class CommentaryController {
 
             let offset = page * limit - limit;
 
-            const commentaries = await commentaryService.getAllCharacteristics(limit, offset);
+            const commentaries = await commentaryService.getAllCommentaries(limit, offset);
 
             return res.json({ commentaries });
         } catch (error) {

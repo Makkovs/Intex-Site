@@ -26,6 +26,19 @@ class CompanyService {
         const company = await Company.findAndCountAll({ limit, offset });
         return company;
     };
+    
+    async renameCompany(id, name){
+        const company = await Company.findOne({ where: {id}});
+
+        if (!company){
+            throw new Error("This company is not exist!");
+        };
+
+        await Company.update(
+            { name: name },
+            { where: { id } }
+        );
+    };
 };
 
 module.exports = new CompanyService();

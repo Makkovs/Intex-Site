@@ -16,10 +16,11 @@ class CommentaryService {
         await Commentary.destroy({ where: { id } });
     };
 
-    async getAllCharacteristics(limit, offset) {
+    async getAllCommentaries(limit, offset) {
         const commentaries = Commentary.findAndCountAll({ limit, offset });
         return commentaries;
     };
+
 };
 
 module.exports = new CommentaryService();

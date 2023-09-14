@@ -7,5 +7,6 @@ const categoryController = require("../controllers/categoryController");
 router.post("/create", categoryController.createCategory);
 router.post("/delete", categoryController.deleteCategory);
 router.get("/get-all", categoryController.getAllCategories);
+router.post("/rename", categoryController.renameCategory);
 
 module.exports = router;

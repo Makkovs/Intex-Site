@@ -4,7 +4,7 @@ class CharacteristicService {
 
     async createCharacteristic(name, body, merchId) {
         const characteristic = await Characteristic.create({ name, body, merchId });
-        return characteristi;
+        return characteristic;
     };
 
     async deleteCharacteristic(id) {

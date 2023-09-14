@@ -42,6 +42,19 @@ class CategoryController {
             return res.status(400).json({ error: `${error}` });
         };
     };
+
+    async renameCategory (req, res) {
+        try {
+            const { id, name } = req.body;
+
+            await categoryService.renameCategory(id, name);
+
+            return res.json({ message: `Category ${id} was renamed` });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ error: `${error}` });
+        };
+    }
 };
 
 module.exports = new CategoryController();

@@ -26,6 +26,19 @@ class CategoryService {
         const categories = await Category.findAndCountAll({ limit, offset });
         return categories;
     };
+    
+    async renameCategory(id, name){
+        const category = await Category.findOne({ where: {id}});
+
+        if (!category){
+            throw new Error("This category is not exist!");
+        };
+
+        await Category.update(
+            { name: name },
+            { where: { id } }
+        );
+    };
 };
 
 module.exports = new CategoryService();

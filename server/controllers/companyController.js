@@ -42,6 +42,19 @@ class CompanyController {
             return res.status(400).json({ error: `${error}` });
         };
     };
+
+    async renameCompany (req, res){
+        try {
+            const { id, name } = req.body;
+
+            await companyService.renameCompany(id, name);
+
+            return res.json({ message: `Company ${id} was renamed` });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({ error: `${error}` });
+        };
+    }
 };
 
 module.exports = new CompanyController();
