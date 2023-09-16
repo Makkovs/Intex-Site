@@ -1,11 +1,12 @@
 const userService = require("../services/userService");
+const errorHandler = require("../utils/errorHandler");
 
 class UserController {
 
     async registration(req, res) {
         errorHandler(async () => {
             const { name, email, password, role } = req.body;
-            let { phone } = req.body; 
+            let { phone } = req.body;
             phone = phone || null
 
             const token = await userService.registration(name, email, phone, password, role);
@@ -32,7 +33,7 @@ class UserController {
 
     async getUser(req, res) {
         errorHandler(async () => {
-            const { id } = req.query
+            const { id } = req.query;
             const userProfile = await userService.getUser(id);
             return res.json({ userProfile });
         })(req, res);

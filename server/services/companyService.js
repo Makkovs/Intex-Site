@@ -26,12 +26,16 @@ class CompanyService {
         const company = await Company.findAndCountAll({ limit, offset });
         return company;
     };
-    
-    async renameCompany(id, name){
-        const company = await Company.findOne({ where: {id}});
 
-        if (!company){
+    async renameCompany(id, name) {
+        const company = await Company.findOne({ where: { id } });
+        if (!company) {
             throw new Error("This company is not exist!");
+        };
+
+        const candidate = await Company.findOne({ where: { name } });
+        if (candidate) {
+            throw new Error("This company is already exist!");
         };
 
         await Company.update(

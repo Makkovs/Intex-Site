@@ -23,16 +23,16 @@ class CharacteristicController {
 
     async getAllCharacteristics(req, res) {
         errorHandler(async () => {
-            let { limit, page } = req.query;
+            let { limit, page, merchId } = req.query;
             page = page || 1;
             limit = limit || 9;
 
             let offset = page * limit - limit;
 
-            const characteristics = await characteristicService.getAllCharacteristics(limit, offset);
+            const characteristics = await characteristicService.getAllCharacteristics(limit, offset, merchId);
 
             return res.json({ characteristics });
-        });
+        })(req, res);
     };
 };
 

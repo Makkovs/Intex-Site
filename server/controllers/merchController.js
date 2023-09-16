@@ -1,4 +1,5 @@
 const merchService = require("../services/merchService");
+const errorHandler = require("../utils/errorHandler");
 
 class MerchController {
 
@@ -22,22 +23,31 @@ class MerchController {
 
     async setMerchStatus(req, res) {
         errorHandler(async () => {
-            const { status, id } = req.body;
-            await merchService.setMerchStatus(status, id);
+            const { id, status } = req.body;
+            await merchService.setMerchStatus(id, status);
 
-            return res.json({ message: `Set status ${status} for Merch ${id}` });
+            return res.json({ message: `Seted status ${status} for Merch ${id}` });
+        })(req, res);
+    };
+
+    async setMerchPrice(req, res) {
+        errorHandler(async () => {
+            const { id, price } = req.body;
+            await merchService.setMerchPrice(id, price);
+
+            return res.json({ message: `Seted price ${price} for Merch ${id}` });
         })(req, res);
     };
 
     async getAllMerch(req, res) {
         errorHandler(async () => {
-            let { limit, page } = req.query;
+            let { limit, page, categoryId, companyId } = req.query;
             page = page || 1;
             limit = limit || 9;
 
             let offset = page * limit - limit;
 
-            const merch = await merchService.getAllMerch(limit, offset);
+            const merch = await merchService.getAllMerch(limit, offset, categoryId, companyId);
             return res.json({ merch });
         })(req, res);
     };

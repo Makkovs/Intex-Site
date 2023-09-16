@@ -9,12 +9,11 @@ class UserService {
 
     async registration(name, email, phone, password, role) {
         const candidateMail = await User.findOne({ where: { email } });
-        const candidatePhone = await User.findOne({ where: { phone } });
-
         if (candidateMail) {
             throw new Error("This email is arleady used!");
         };
 
+        const candidatePhone = await User.findOne({ where: { phone } });
         if (phone && candidatePhone) {
             throw new Error("This phone is already used!");
         };

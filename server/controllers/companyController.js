@@ -1,4 +1,5 @@
 const companyService = require("../services/companyService");
+const errorHandler = require("../utils/errorHandler");
 
 class CompanyController {
 
@@ -34,7 +35,7 @@ class CompanyController {
         })(req, res);
     };
 
-    async renameCompany (req, res){
+    async renameCompany(req, res) {
         errorHandler(async () => {
             const { id, name } = req.body;
 
