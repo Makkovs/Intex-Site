@@ -3,31 +3,25 @@ const commentaryService = require("../services/commentaryService");
 class CommentaryController {
 
     async createCommentary(req, res) {
-        try {
+        errorHandler(async () => {
             const { name, body, merchId, commentaryId } = req.body;
             const characteristic = await commentaryService.createCommentary(name, body, merchId, commentaryId);
 
             return res.json({ characteristic });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async deleteCommentary(req, res) {
-        try {
+        errorHandler(async () => {
             const { id } = req.body;
             await commentaryService.deleteCommentary(id);
 
             return res.json({ message: `Commentary ${id} was deleted.` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getAllCommentaries(req, res) {
-        try {
+        errorHandler(async () => {
             let { limit, page } = req.query;
             page = page || 1;
             limit = limit || 9;
@@ -37,11 +31,8 @@ class CommentaryController {
             const commentaries = await commentaryService.getAllCommentaries(limit, offset);
 
             return res.json({ commentaries });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 };
- 
+
 module.exports = new CommentaryController();

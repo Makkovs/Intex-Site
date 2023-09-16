@@ -1,33 +1,28 @@
 const characteristicService = require("../services/characteristicService");
+const errorHandler = require("../utils/errorHandler");
 
 class CharacteristicController {
 
     async createCharacteristic(req, res) {
-        try {
+        errorHandler(async () => {
             const { name, body, merchId } = req.body;
             const characteristic = await characteristicService.createCharacteristic(name, body, merchId);
 
             return res.json({ characteristic });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async deleteCharacteristic(req, res) {
-        try {
+        errorHandler(async () => {
             const { id } = req.body;
             await characteristicService.deleteCharacteristic(id);
 
             return res.json({ message: `Characteristic ${id} was deleted.` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getAllCharacteristics(req, res) {
-        try {
+        errorHandler(async () => {
             let { limit, page } = req.query;
             page = page || 1;
             limit = limit || 9;
@@ -37,10 +32,7 @@ class CharacteristicController {
             const characteristics = await characteristicService.getAllCharacteristics(limit, offset);
 
             return res.json({ characteristics });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        });
     };
 };
 

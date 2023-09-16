@@ -3,43 +3,34 @@ const merchService = require("../services/merchService");
 class MerchController {
 
     async createMerch(req, res) {
-        try {
+        errorHandler(async () => {
             const { name, desc, price, status } = req.body;
             const merch = await merchService.createMerch(name, desc, price, status);
 
             return res.json({ merch });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async deleteMerch(req, res) {
-        try {
+        errorHandler(async () => {
             const { id } = req.body;
             await merchService.deleteMerch(id);
 
             return res.json({ message: `Merch ${id} was deleted.` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async setMerchStatus(req, res) {
-        try {
+        errorHandler(async () => {
             const { status, id } = req.body;
             await merchService.setMerchStatus(status, id);
 
             return res.json({ message: `Set status ${status} for Merch ${id}` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getAllMerch(req, res) {
-        try {
+        errorHandler(async () => {
             let { limit, page } = req.query;
             page = page || 1;
             limit = limit || 9;
@@ -48,22 +39,16 @@ class MerchController {
 
             const merch = await merchService.getAllMerch(limit, offset);
             return res.json({ merch });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getOneMerch(req, res) {
-        try {
+        errorHandler(async () => {
             let { id } = req.params;
             const merch = await merchService.getOneMerch(id);
 
             return res.json({ merch });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 };
 

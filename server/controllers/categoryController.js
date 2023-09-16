@@ -1,33 +1,28 @@
 const categoryService = require("../services/categoryService");
+const errorHandler = require("../utils/errorHandler");
 
 class CategoryController {
-
+    
     async createCategory(req, res) {
-        try {
-            const { name } = req.body;
+        errorHandler(async () => {
+            const {name} = req.body;
             const category = await categoryService.createCategory(name);
-
-            return res.json({ category });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+            
+            res.json({category});
+        })(req, res);
     };
 
     async deleteCategory(req, res) {
-        try {
+        errorHandler(async () => {
             const { id } = req.body;
             await categoryService.deleteCategory(id);
 
             return res.json({ message: `Category ${id} was deleted.` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getAllCategories(req, res) {
-        try {
+        errorHandler(async () => {
             let { limit, page } = req.query;
             page = page || 1;
             limit = limit || 9;
@@ -37,24 +32,18 @@ class CategoryController {
             const categories = await categoryService.getAllCategories(limit, offset);
 
             return res.json({ categories });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async renameCategory (req, res) {
-        try {
+        errorHandler(async () => {
             const { id, name } = req.body;
 
             await categoryService.renameCategory(id, name);
 
             return res.json({ message: `Category ${id} was renamed` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
-    }
+        })
+    };
 };
 
 module.exports = new CategoryController();

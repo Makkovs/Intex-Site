@@ -3,31 +3,25 @@ const companyService = require("../services/companyService");
 class CompanyController {
 
     async createCompany(req, res) {
-        try {
+        errorHandler(async () => {
             const { name } = req.body;
             const company = await companyService.createCompany(name);
 
             return res.json({ company })
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` })
-        };
+        })(req, res);
     };
 
     async deleteCompany(req, res) {
-        try {
+        errorHandler(async () => {
             const { id } = req.body;
             await companyService.deleteCompany(id);
 
             return res.json({ message: `Company ${id} was deleted.` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async getAllCompanies(req, res) {
-        try {
+        errorHandler(async () => {
             let { limit, page } = req.query;
             page = page || 1;
             limit = limit || 9;
@@ -37,24 +31,18 @@ class CompanyController {
             const companies = await companyService.getAllCompanies(limit, offset);
 
             return res.json({ companies });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
+        })(req, res);
     };
 
     async renameCompany (req, res){
-        try {
+        errorHandler(async () => {
             const { id, name } = req.body;
 
             await companyService.renameCompany(id, name);
 
             return res.json({ message: `Company ${id} was renamed` });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).json({ error: `${error}` });
-        };
-    }
+        })(req, res);
+    };
 };
 
 module.exports = new CompanyController();
