@@ -15,11 +15,9 @@ const CatalogAside = ({ categories, companies }) => {
                     :
                     <>
                         {categories.map((category) =>
-                            <>
-                                <span className={styles.filter}>
-                                    <OrbCheckbox text={category.name} key={category.id} />
-                                </span><br />
-                            </>
+                            <span className={styles.filter} key={category.id}>
+                                <OrbCheckbox text={category.name} />
+                            </span>
                         )}
                     </>
                 }
@@ -34,11 +32,9 @@ const CatalogAside = ({ categories, companies }) => {
                     :
                     <>
                         {companies.map((company) =>
-                            <>
-                                <span className={styles.filter}>
-                                    <OrbCheckbox text={company.name} key={company.id} />
-                                </span><br />
-                            </>
+                            <span className={styles.filter} key={company.id}>
+                                <OrbCheckbox text={company.name} />
+                            </span>
                         )}
                     </>
                 }

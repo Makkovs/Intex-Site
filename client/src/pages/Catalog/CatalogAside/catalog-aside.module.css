@@ -10,6 +10,6 @@
 }
 
 .filter {
-    display: inline-block;
+    display: block;
     margin: 10px 0px 0px 0px;
 }

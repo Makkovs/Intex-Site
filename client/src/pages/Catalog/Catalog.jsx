@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+
 import { fetchMerch } from "../../http/merchAPI";
+import { fetchCategories } from "../../http/categoryAPI";
+import { fetchCompanies } from "../../http/companyAPI";
 
 import CatalogNav from "./CatalogNav/CatalogNav";
 import CatalogAside from "./CatalogAside/CatalogAside";
@@ -7,8 +10,6 @@ import CatalogMerch from "./CatalogMerch/CatalogMerch";
 import Loading from "../../components/UI/Loading/Loading";
 
 import styles from "./catalog.module.css";
-import { fetchCategories } from "../../http/categoryAPI";
-import { fetchCompanies } from "../../http/companyAPI";
 
 const CatalogPage = () => {
     const [merch, setMerch] = useState([]);

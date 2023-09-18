@@ -20,6 +20,6 @@ export const fetchMerch = async (limit, page, categoryId, companyId) => {
 };
 
 export const fetchOneMerch = async (merchId) => {
-    const { data } = await $host.get("api/merch/" + id);
+    const { data } = await $host.get("api/merch/" + merchId);
     return data;
 };
