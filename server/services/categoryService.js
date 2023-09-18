@@ -23,8 +23,8 @@ class CategoryService {
         await Category.destroy({ where: { id } });
     };
 
-    async getAllCategories(limit, offset) {
-        const categories = await Category.findAndCountAll({ limit, offset });
+    async getAllCategories() {
+        const categories = await Category.findAndCountAll();
         return categories;
     };
 

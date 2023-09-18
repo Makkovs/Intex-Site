@@ -23,13 +23,7 @@ class CategoryController {
 
     async getAllCategories(req, res) {
         errorHandler(async () => {
-            let { limit, page } = req.query;
-            page = page || 1;
-            limit = limit || 9;
-            let offset = page * limit - limit;
-
-            const categories = await categoryService.getAllCategories(limit, offset);
-
+            const categories = await categoryService.getAllCategories();
             return res.json({ categories });
         })(req, res);
     };
