@@ -23,14 +23,7 @@ class CompanyController {
 
     async getAllCompanies(req, res) {
         errorHandler(async () => {
-            let { limit, page } = req.query;
-            page = page || 1;
-            limit = limit || 9;
-
-            let offset = page * limit - limit;
-
-            const companies = await companyService.getAllCompanies(limit, offset);
-
+            const companies = await companyService.getAllCompanies();
             return res.json({ companies });
         })(req, res);
     };

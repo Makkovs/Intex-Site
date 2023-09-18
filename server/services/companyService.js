@@ -22,8 +22,8 @@ class CompanyService {
         await Company.destroy({ where: { id } });
     };
 
-    async getAllCompanies(limit, offset) {
-        const company = await Company.findAndCountAll({ limit, offset });
+    async getAllCompanies() {
+        const company = await Company.findAndCountAll();
         return company;
     };
 
