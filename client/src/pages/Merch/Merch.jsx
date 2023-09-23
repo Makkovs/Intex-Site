@@ -1,26 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { fetchOneMerch } from "../../http/merchAPI";
+
+import Loading from "../../components/UI/Loading/Loading";
 import Button from "../../components/UI/Button/Button";
 import Commentaries from "./Commentaries/Commentaries";
 import MerchGalery from "./MerchGalery/MerchGalery";
 import MerchInfo from "./MerchInfo/MerchInfo";
 
 import styles from "./merch.module.css";
-import { useEffect } from "react";
-import { fetchOneMerch } from "../../http/merchAPI";
-import { useState } from "react";
-import Loading from "../../components/UI/Loading/Loading";
 
 const Merch = () => {
 
     const { id } = useParams();
-    const [merch, setMerch] = useState({})
+    const [merch, setMerch] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchOneMerch(id).then(data => {
             setMerch(data.merch);
-            console.log(data.merch);
         }).finally(() => setLoading(false));
     }, []);
 

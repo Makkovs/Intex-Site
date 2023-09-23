@@ -1,6 +1,12 @@
 import thunk from "redux-thunk";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 
 import { filtersReducer } from "./filtersReducer";
+import { userReducer } from "./userReducer";
 
-export const store = createStore(filtersReducer, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+    filters: filtersReducer, 
+    user: userReducer
+});
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));

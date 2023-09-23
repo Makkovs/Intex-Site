@@ -42,7 +42,7 @@ class UserService {
     };
 
     async check(id, name, phone, email, role) {
-        const token = generateJwt(id, name, email, phone, role);
+        const token = generateJwt(id, name, phone, email, role);
         return token;
     };
 

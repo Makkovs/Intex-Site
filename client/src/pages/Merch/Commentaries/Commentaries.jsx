@@ -4,23 +4,18 @@ import { useEffect } from "react";
 import { fetchCommentaries } from "../../../http/commentaryAPI";
 
 import Button from "../../../components/UI/Button/Button";
+import Loading from "../../../components/UI/Loading/Loading";
 import Commentary from "./Commentary/Commentary";
 
 import styles from "./commentaries.module.css";
-import Loading from "../../../components/UI/Loading/Loading";
 
 const Commentaries = ({ merchId }) => {
-    const body = ` Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus non ratione vitae, natus id quidem dignissimos eligendi, aspernatur doloribus
-    autem adipisci eaque! Amet voluptatum fuga cumque necessitatibus dicta praesentium ipsum perferendis quibusdam enim, neque molestiae qui unde ut
-    veritatis nulla sed recusandae in temporibus commodi nemo fugiat? Velit alias pariatur incidunt iste ut adipisci provident repudiandae at aut laudantium.`
-
     const [commentaries, setCommentaries] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchCommentaries(merchId, null, null).then(data => {
             setCommentaries(data.commentaries.rows);
-            console.log(data.commentaries.rows)
         }).finally(() => setLoading(false));
     }, []);
 

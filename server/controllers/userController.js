@@ -26,8 +26,8 @@ class UserController {
 
     async check(req, res) {
         errorHandler(async () => {
-            const token = await userService.check(req.user.id, req.user.name, reg.user.phone, req.user.email, req.user.role);
-            return res.json({ token });
+            const token = await userService.check(req.user.id, req.user.name, req.user.phone, req.user.email, req.user.role);
+            return res.json({ token }); 
         })(req, res);
     };
 
