@@ -38,10 +38,20 @@ const Commentary = sequelize.define("commentary", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING },
     body: { type: DataTypes.STRING }
-})
+});
+
+const Basket = sequelize.define("basket", {
+    id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true}, 
+});
 
 User.hasMany(Commentary);
 Commentary.belongsTo(User);
+
+User.hasOne(Basket);
+Basket.belongsTo(User);
+
+Basket.belongsToMany(Merch, { through: "BasketMerch" });
+Merch.belongsToMany(Basket, { through: "BasketMerch" });
 
 Category.hasMany(Merch);
 Merch.belongsTo(Category);
@@ -64,5 +74,6 @@ module.exports = {
     Company,
     Merch,
     Characteristic,
-    Commentary
+    Commentary,
+    Basket
 };

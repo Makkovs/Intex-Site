@@ -1,3 +1,4 @@
+const { User, Basket, Merch } = require("../models/models");
 const userService = require("../services/userService");
 const errorHandler = require("../utils/errorHandler");
 
@@ -38,6 +39,22 @@ class UserController {
             return res.json({ userProfile });
         })(req, res);
     };
+
+    async getBasket (req, res){
+        errorHandler(async () => {
+            const user = await User.findOne({ where: { id: 25 } });
+            let basket = await user.getBasket();
+            if (!basket) {
+                console.log("test")
+                basket = await Basket.create();
+                await user.setBasket(basket);
+            };
+            //const merch = await Merch.findOne({where : { id: 7}});
+            //await basket.addMerch(merch);
+            const merchs = await basket.getMerchs();
+            return res.json({ merchs })
+        })(req, res);
+    }
 };
 
-module.exports = new UserController();
+module.exports = new UserController();  
