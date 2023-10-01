@@ -26,14 +26,17 @@ const CatalogPage = () => {
             setCompanies(data.companies.rows);
         });
 
-        fetchMerch(100, 1, null, null).then(data => { //limit, page, categoryId, companyId
+        fetchMerch(100, 1, null, null).then(data => {
             setMerch(data.merch.rows);
         }).finally(() => setLoading(false));
     }, []);
 
     return (
         <main className={styles.catalog}>
-            <CatalogNav />
+            <CatalogNav
+                categories={categories}
+                companies={companies}
+            />
             {loading
                 ?
                 <Loading loading={loading} />
