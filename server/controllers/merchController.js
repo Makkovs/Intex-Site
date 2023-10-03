@@ -5,8 +5,8 @@ class MerchController {
 
     async createMerch(req, res) {
         errorHandler(async () => {
-            const { name, desc, price, status, companyId, categoryId } = req.body;
-            const merch = await merchService.createMerch(name, desc, price, status, companyId, categoryId);
+            const { name, desc, price, status } = req.body;
+            const merch = await merchService.createMerch(name, desc, price, status);
 
             return res.json({ merch });
         })(req, res);

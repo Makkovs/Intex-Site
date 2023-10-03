@@ -1,7 +1,24 @@
 import OrbCheckbox from "../../../components/UI/OrbCheckbox/OrbCheckbox";
+
 import styles from "./catalog-aside.module.css";
 
-const CatalogAside = ({ categories, companies }) => {
+const CatalogAside = ({ categories, companies, categoryFilters, setCategoryFilters, companyFilters, setCompanyFilters }) => {
+
+    const addCategoryFilter = (categoryId, checked) => {
+        if (checked) {
+            setCategoryFilters([...categoryFilters, categoryId]);
+        }else{
+            setCategoryFilters(categoryFilters.filter(id => id != categoryId));
+        };
+    };
+
+    const addCompanyFilter = (companyId, checked) => {
+        if (checked) {
+            setCompanyFilters([...companyFilters, companyId]);
+        }else{
+            setCompanyFilters(companyFilters.filter(id => id != companyId));
+        };
+    }
 
     return (
         <aside className={styles.filters}>
@@ -16,7 +33,7 @@ const CatalogAside = ({ categories, companies }) => {
                     <>
                         {categories.map((category) =>
                             <span className={styles.filter} key={category.id}>
-                                <OrbCheckbox text={category.name} />
+                                <OrbCheckbox text={category.name} onClick={(e) => addCategoryFilter(category.id, e.target.checked)}/>
                             </span>
                         )}
                     </>
@@ -33,7 +50,7 @@ const CatalogAside = ({ categories, companies }) => {
                     <>
                         {companies.map((company) =>
                             <span className={styles.filter} key={company.id}>
-                                <OrbCheckbox text={company.name} />
+                                <OrbCheckbox text={company.name} onClick={(e) => addCompanyFilter(company.id, e.target.checked)}/>
                             </span>
                         )}
                     </>

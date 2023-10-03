@@ -49,8 +49,6 @@ class UserController {
                 basket = await Basket.create();
                 await user.setBasket(basket);
             };
-            //const merch = await Merch.findOne({where : { id: 7}});
-            //await basket.addMerch(merch);
             const merchs = await basket.getMerchs();
             return res.json({ merchs })
         })(req, res);

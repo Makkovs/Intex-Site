@@ -11,7 +11,7 @@ import Button from "../../../components/UI/Button/Button";
 
 import styles from "./catalog-nav.module.css";
 
-const CatalogNav = ({ categories, companies }) => {
+const CatalogNav = ({ categories, companies, searchFilter, setSearchFilter, setPriceSort }) => {
 
     const user = useSelector(state => state.user.user);
     const [merchVisible, setMerchVisible] = useState(false);
@@ -25,13 +25,16 @@ const CatalogNav = ({ categories, companies }) => {
                 name="sort-type"
                 id={styles["cheap"]}
                 type="radio"
-                defaultChecked
+                value={"CHEAP"}
+                onChange={(e) => setPriceSort(e.target.value)}
             />
             <input
                 className={styles.radio}
                 name="sort-type"
                 id={styles["expansive"]}
                 type="radio"
+                value={"EXPANSIVE"}
+                onChange={(e) => setPriceSort(e.target.value)}
             />
             <div className={styles.sortButtons}>
                 <label className={[styles.sortButton, styles.leftButton].join(" ")} htmlFor={styles["cheap"]}>
@@ -82,6 +85,8 @@ const CatalogNav = ({ categories, companies }) => {
                     className={styles.searchInput}
                     type="text"
                     placeholder="Search"
+                    value={searchFilter}
+                    onChange={(e) => setSearchFilter(e.target.value)}
                 />
             </div>
         </nav>
