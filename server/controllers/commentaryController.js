@@ -5,8 +5,8 @@ class CommentaryController {
 
     async createCommentary(req, res) {
         errorHandler(async () => {
-            const { name, body, merchId, commentaryId, userId } = req.body;
-            const characteristic = await commentaryService.createCommentary(name, body, merchId, commentaryId, userId);
+            const { name, body, merchId, commentaryId } = req.body;
+            const characteristic = await commentaryService.createCommentary(name, body, merchId, commentaryId, req.user.id);
 
             return res.json({ characteristic });
         })(req, res);

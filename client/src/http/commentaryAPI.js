@@ -1,12 +1,12 @@
 import { $authHost, $host } from "./index";
 
-export const createCommentary = async (name, body, merchId, commentaryId, userId) => {
-    const { data } = await $authHost.post("api/commentary/create", {name, body, merchId, commentaryId, userId});
+export const createCommentary = async (name, body, merchId, commentaryId) => {
+    const { data } = await $authHost.post("api/commentary/create", { name, body, merchId, commentaryId });
     return data;
 };
 
 export const deleteCommentary = async (commentaryId) => {
-    const { data } = await $authHost.post("api/commentary/delete", commentaryId);
+    const { data } = await $authHost.post("api/commentary/delete", { commentaryId });
     return data;
 };
 

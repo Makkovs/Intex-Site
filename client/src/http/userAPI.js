@@ -26,3 +26,8 @@ export const check = async () => {
     localStorage.setItem("token", data.token);
     return jwt_decode(data.token);
 };
+
+export const fetchOneUser = async (id) => {
+    const { data } = await $host.get("api/user/get-user", { params: { id } });
+    return data;
+};

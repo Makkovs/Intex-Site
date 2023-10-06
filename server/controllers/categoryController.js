@@ -28,6 +28,14 @@ class CategoryController {
         })(req, res);
     };
 
+    async getOneCategory (req, res) {
+        errorHandler(async () => {
+            const { id } = req.query;
+            const category = await categoryService.getOneCategory(id);
+            return res.json({ category });
+        })(req, res);
+    };
+
     async renameCategory(req, res) {
         errorHandler(async () => {
             const { id, name } = req.body;

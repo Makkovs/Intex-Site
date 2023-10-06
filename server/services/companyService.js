@@ -27,6 +27,11 @@ class CompanyService {
         return company;
     };
 
+    async getOneCompany(id) {
+        const company = await Company.findOne({ where: { id } });
+        return company;
+    }
+
     async renameCompany(id, name) {
         const company = await Company.findOne({ where: { id } });
         if (!company) {

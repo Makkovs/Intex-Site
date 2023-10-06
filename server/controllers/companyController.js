@@ -1,3 +1,4 @@
+const categoryService = require("../services/categoryService");
 const companyService = require("../services/companyService");
 const errorHandler = require("../utils/errorHandler");
 
@@ -25,6 +26,14 @@ class CompanyController {
         errorHandler(async () => {
             const companies = await companyService.getAllCompanies();
             return res.json({ companies });
+        })(req, res);
+    };
+
+    async getOneCompany (req, res) {
+        errorHandler(async () => {
+            const { id } = req.query;
+            const company = await companyService.getOneCompany(id);
+            return res.json({ company });
         })(req, res);
     };
 

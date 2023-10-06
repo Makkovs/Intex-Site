@@ -13,4 +13,9 @@ export const deleteCompany = async (companyId) => {
 export const fetchCompanies = async () => {
     const { data } = await $host.get("api/company/get-all");
     return data;
-}
+};
+
+export const fetchOneCompany = async (id) => {
+    const { data } = await $host.get("api/company/get-one", { params: { id }});
+    return data;
+};

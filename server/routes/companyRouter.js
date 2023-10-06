@@ -7,6 +7,7 @@ const companyController = require("../controllers/companyController");
 router.post("/create", companyController.createCompany);
 router.post("/delete", companyController.deleteCompany);
 router.get("/get-all", companyController.getAllCompanies);
+router.get("/get-one", companyController.getOneCompany);
 router.post("/rename", companyController.renameCompany);
 
 module.exports = router;

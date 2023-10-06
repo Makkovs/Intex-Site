@@ -14,3 +14,8 @@ export const fetchCategories = async () => {
     const { data } = await $host.get("api/category/get-all");
     return data;
 };
+
+export const fetchOneCategory = async (id) => {
+    const { data } = await $host.get("api/category/get-one", { params: { id } });
+    return data;
+};

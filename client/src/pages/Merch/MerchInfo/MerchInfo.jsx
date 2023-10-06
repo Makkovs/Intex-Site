@@ -1,25 +1,36 @@
 import styles from "./merch-info.module.css";
 
-const MerchInfo = () => {
+const MerchInfo = ({ characteristics, category, company }) => {
+    
     return (
         <ul className={styles.informationBlock}>
             <h3>Загальні характеристики</h3>
             <li className={styles.row}>
                 <div className={styles.charName}>
-                    Виробник:
+                    Категорія:
                 </div>
                 <div className={styles.charBody}>
-                    Агагагага
+                    {category}
                 </div>
             </li>
             <li className={styles.row}>
                 <div className={styles.charName}>
-                    Ще щось:
+                    Виробник:
                 </div>
                 <div className={styles.charBody}>
-                    Там щось
+                    {company}
                 </div>
             </li>
+            {characteristics.map(characteristic =>
+                <li className={styles.row} key={characteristic.id}>
+                    <div className={styles.charName}>
+                        {characteristic.name}
+                    </div>
+                    <div className={styles.charBody}>
+                        {characteristic.body}
+                    </div>
+                </li>
+            )}
         </ul>
     );
 };

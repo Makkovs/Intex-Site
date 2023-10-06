@@ -23,3 +23,9 @@
     outline: none !important;
     background: #f5f5f5;
 }
+
+.textError {
+    margin: -20px 0px 10px 0px;
+    font-size: 14px;
+    color: #a10808;
+}

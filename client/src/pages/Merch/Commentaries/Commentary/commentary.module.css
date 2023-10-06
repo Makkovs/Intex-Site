@@ -1,4 +1,4 @@
-.commentary{
+.commentary {
     display: flex;
     align-items: center;
     margin: 20px 0px 20px 0px;
@@ -7,13 +7,29 @@
     padding: 20px 20px 20px 20px;
 }
 
-.avatar{
+.avatar {
     height: 55px;
     width: 55px;
     border-radius: 50%;
     margin-right: 20px;
 }
 
-.authorName{
+.authorName {
     margin-bottom: 10px;
+}
+
+.commentaryMenu {
+    margin-top: 10px;
+}
+
+.textButton {
+    color: #181818;
+    font-size: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.textButton:hover {
+    color: #b6b6b6;
 }

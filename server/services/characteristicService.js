@@ -16,10 +16,9 @@ class CharacteristicService {
         await Characteristic.destroy({ where: { id } });
     };
 
-    async getAllCharacteristics(limit, offset, merchId) {
+    async getAllCharacteristics(merchId) {
         const characteristics = Characteristic.findAndCountAll(
-            { where: { merchId } },
-            { limit, offset }
+            { where: { merchId } }
         );
         return characteristics;
     };

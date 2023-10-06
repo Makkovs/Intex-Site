@@ -52,7 +52,7 @@ class UserController {
             const merchs = await basket.getMerchs();
             return res.json({ merchs })
         })(req, res);
-    }
+    };
 };
 
 module.exports = new UserController();  
