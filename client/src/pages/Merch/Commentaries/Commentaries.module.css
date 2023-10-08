@@ -29,3 +29,10 @@
     font-size: 14px;
     color: #a10808;
 }
+
+.commentaryAnswer {
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    background-color: #ffffff;
+}

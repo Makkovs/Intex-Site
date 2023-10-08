@@ -7,6 +7,10 @@
     padding: 20px 20px 20px 20px;
 }
 
+.commentaryReply {
+    margin-left: 60px;
+}
+
 .avatar {
     height: 55px;
     width: 55px;
@@ -16,6 +20,12 @@
 
 .authorName {
     margin-bottom: 10px;
+}
+
+.replyName {
+    color: #b6b6b6;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .commentaryMenu {

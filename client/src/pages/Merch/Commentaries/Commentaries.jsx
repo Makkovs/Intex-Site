@@ -12,28 +12,68 @@ import styles from "./commentaries.module.css";
 const Commentaries = ({ merchId }) => {
     const commentaryBodyInput = useRef(null);
     const [commentaries, setCommentaries] = useState([]);
+    const [commentaryAnswers, setCommentaryAnswers] = useState([]);
     const [commentaryError, setCommentaryError] = useState("");
     const [loading, setLoading] = useState(true);
 
+    const addAnswer = (commentaryId) => {
+        setCommentaryAnswers(commentaryAnswersState =>
+            [...commentaryAnswersState, { body: "", status: false, id: commentaryId }]
+        );
+    };
+
+    const changeAnswer = (commentaryId, key, value) => {
+        setCommentaryAnswers(commentaryAnswers.map(
+            answer => answer.id === commentaryId
+                ? { ...answer, [key]: value }
+                : answer
+        ));
+    };
+
     useEffect(() => {
         fetchCommentaries(merchId, null, null).then(data => {
-            setCommentaries(data.commentaries.rows);
+            setCommentaries([]);
+            setCommentaryAnswers([]);
+            data.commentaries.rows.filter(commentary => !commentary.commentaryId).forEach(commentary => {
+                setCommentaries(lastCommentaries =>
+                    [...lastCommentaries, { ...commentary, replies: [] }]
+                );
+            });
+            data.commentaries.rows.filter(commentary => commentary.commentaryId).forEach(commentary => {
+                setCommentaries(lastCommentaries =>
+                    lastCommentaries.map(
+                        comment => comment.id === commentary.commentaryId
+                            ? { ...comment, replies: [...comment.replies, commentary] }
+                            : comment
+                    )
+                );
+            });
+            data.commentaries.rows.forEach(commentary => {
+                addAnswer(commentary.id);
+            });
         }).finally(() => setLoading(false));
     }, []);
 
-    const addNewCommentary = () => {
-        let commentaryBody = commentaryBodyInput.current.textContent; 
+    const addNewCommentary = (commentaryBody, commentaryId) => {
         if (commentaryBody.length < 5) {
             setCommentaryError("Коментар має містити більше 4-х символів!");
-        }else{
+        } else {
             setCommentaryError("");
             commentaryBodyInput.current.textContent = "";
-            createCommentary("pofig", commentaryBody, merchId, null);
+            createCommentary("pofig", commentaryBody, merchId, commentaryId);
         };
+    };
+
+    const addNewAnswer = (commentaryId) => {
+        console.log(commentaryId)
+        addNewCommentary(commentaryAnswers.find((answer) => answer.id === commentaryId).body, commentaryId);
+        changeAnswer(commentaryId, "body", "");
+        changeAnswer(commentaryId, "status", false);
     };
 
     return (
         <>
+            <button onClick={() => console.log(commentaryAnswers)}>qwdqwd</button>
             {loading
                 ?
                 <Loading loading={loading} />
@@ -52,17 +92,55 @@ const Commentaries = ({ merchId }) => {
                                 {commentaryError}
                             </span>
                         }
-                        <Button onClick={addNewCommentary}>
+                        <Button
+                            onClick={() => addNewCommentary(commentaryBodyInput.current.textContent, null)}
+                        >
                             Додати
                         </Button>
                     </div>
                     {commentaries.map((commentary) =>
-                        <Commentary
-                            avatar={"../gray-img.png"}
-                            authorId={commentary.userId}
-                            body={commentary.body}
-                            key={commentary.id}
-                        />
+                        <div key={commentary.id}>
+                            <Commentary
+                                avatar={"../gray-img.png"}
+                                commentary={commentary}
+                                changeAnswer={changeAnswer}
+                                reply={false}
+                            />
+                            {commentary.replies.length > 0 &&
+                                commentary.replies.map(reply =>
+                                    <Commentary
+                                        key={reply.id}
+                                        avatar={"../gray-img.png"}
+                                        commentary={reply}
+                                        changeAnswer={changeAnswer}
+                                        reply={true}
+                                        replyParent={commentary}
+                                    />
+                                )}
+                            {commentaryAnswers.find((answer) => answer.id == commentary.id)?.status &&
+                                <div className={styles.commentaryAnswer}>
+                                    <h4>Відподь на коментар:</h4>
+                                    <p
+                                        className={styles.addCommentaryInput}
+                                        contentEditable
+                                        suppressContentEditableWarning={true}
+                                        onInput={(e) => changeAnswer(commentary.id, "body", e.target.textContent)}
+                                    ></p>
+                                    {
+                                        commentaryError.length > 0 &&
+                                        <span className={styles.textError}>
+                                            {commentaryError}
+                                        </span>
+                                    }
+                                    <Button
+                                        onClick={() => addNewAnswer(commentary.id)}
+                                    >
+                                        Додати
+                                    </Button>
+                                </div>
+
+                            }
+                        </div>
                     )}
                 </>
             }
