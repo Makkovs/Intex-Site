@@ -38,8 +38,8 @@
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.2s;
-}
 
-.textButton:hover {
-    color: #b6b6b6;
+    &:hover {
+        color: #b6b6b6;
+    }
 }

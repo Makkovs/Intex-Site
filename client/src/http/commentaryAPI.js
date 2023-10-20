@@ -1,7 +1,7 @@
 import { $authHost, $host } from "./index";
 
-export const createCommentary = async (name, body, merchId, commentaryId) => {
-    const { data } = await $authHost.post("api/commentary/create", { name, body, merchId, commentaryId });
+export const createCommentary = async (body, merchId, commentaryId) => {
+    const { data } = await $authHost.post("api/commentary/create", { name: "pofig", body, merchId, commentaryId });
     return data;
 };
 

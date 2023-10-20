@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { CATALOGE_ROUTE, HOME_ROUTE } from "../../../utils/consts";
 import SlideInfo from "./SlideInfo/SlideInfo";
 
-import styles from "./slider.module.css";
+import styles from "./slider.module.scss";
 
 const Slider = () => {
 

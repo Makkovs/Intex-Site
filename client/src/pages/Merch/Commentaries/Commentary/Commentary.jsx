@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import styles from "./commentary.module.css";
+
 import { fetchOneUser } from "../../../../http/userAPI";
+
+import styles from "./commentary.module.scss";
 
 const Commentary = ({ avatar, commentary, changeAnswer, reply, replyParent }) => {
 
@@ -8,15 +10,30 @@ const Commentary = ({ avatar, commentary, changeAnswer, reply, replyParent }) =>
     const [replyName, setReplyName] = useState("");
 
     useEffect(() => {
-        fetchOneUser(commentary.userId).then(data => setAuthorName(data.userProfile.name))
+        fetchOneUser(commentary.userId).then(
+            data => setAuthorName(data.userProfile.name)
+        );
+
         if (reply && replyParent) {
-            fetchOneUser(replyParent.userId).then(data => setReplyName(` | Відповідь для ${data.userProfile.name}`));
+            fetchOneUser(replyParent.userId).then(
+                data => setReplyName(` | Відповідь для ${data.userProfile.name}`)
+            );
         };
     }, []);
 
     return (
-        <div className={reply ? [styles.commentary, styles.commentaryReply].join(" ") : styles.commentary}>
-            <img className={styles.avatar} src={avatar} alt="avatar" />
+        <div
+            className={
+                reply
+                    ? [styles.commentary, styles.commentaryReply].join(" ")
+                    : styles.commentary
+            }
+        >
+            <img
+                className={styles.avatar}
+                src={avatar}
+                alt="avatar"
+            />
             <div className={styles.commentaryInfo}>
                 <h4 className={styles.authorName}>
                     {authorName}
@@ -26,7 +43,14 @@ const Commentary = ({ avatar, commentary, changeAnswer, reply, replyParent }) =>
                     {commentary.body}
                 </p>
                 <div className={styles.commentaryMenu}>
-                    {!reply && <span className={styles.textButton} onClick={() => changeAnswer(commentary.id, "status", true)}>Відповісти</span>}
+                    {!reply &&
+                        <span
+                            className={styles.textButton}
+                            onClick={() => changeAnswer(commentary.id, "status", true)}
+                        >
+                            Відповісти
+                        </span>
+                    }
                     <span className={styles.textButton}>Поскаржитись</span>
                 </div>
             </div>

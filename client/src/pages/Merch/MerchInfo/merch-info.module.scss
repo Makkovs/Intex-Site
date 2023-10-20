@@ -8,20 +8,20 @@
     margin-top: 20px;
     border-radius: 10px;
     background: #ffffff;
-}
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+    .row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
-.charBody,
-.charName {
-    display: inline-block;
-    margin: 15px 40px 5px 40px;
-}
+    .charBody,
+    .charName {
+        display: inline-block;
+        margin: 15px 40px 5px 40px;
+    }
 
-.charBody {
-    margin-left: 200px;
+    .charBody {
+        margin-left: 200px;
+    }
 }

@@ -1,26 +1,24 @@
 import { useRef, useState } from "react";
-import { useEffect } from "react";
 
-import { createCommentary, fetchCommentaries } from "../../../http/commentaryAPI";
+import { createCommentary } from "../../../http/commentaryAPI";
+import useCommentaries from "../../../hooks/useCommentaries";
 
 import Button from "../../../components/UI/Button/Button";
 import Loading from "../../../components/UI/Loading/Loading";
 import Commentary from "./Commentary/Commentary";
 
-import styles from "./commentaries.module.css";
+import styles from "./commentaries.module.scss";
 
 const Commentaries = ({ merchId }) => {
+
     const commentaryBodyInput = useRef(null);
-    const [commentaries, setCommentaries] = useState([]);
-    const [commentaryAnswers, setCommentaryAnswers] = useState([]);
     const [commentaryError, setCommentaryError] = useState("");
     const [loading, setLoading] = useState(true);
 
-    const addAnswer = (commentaryId) => {
-        setCommentaryAnswers(commentaryAnswersState =>
-            [...commentaryAnswersState, { body: "", status: false, id: commentaryId }]
-        );
-    };
+    const [
+        commentaries, setCommentaries,
+        commentaryAnswers, setCommentaryAnswers
+    ] = useCommentaries(merchId, setLoading);
 
     const changeAnswer = (commentaryId, key, value) => {
         setCommentaryAnswers(commentaryAnswers.map(
@@ -30,50 +28,27 @@ const Commentaries = ({ merchId }) => {
         ));
     };
 
-    useEffect(() => {
-        fetchCommentaries(merchId, null, null).then(data => {
-            setCommentaries([]);
-            setCommentaryAnswers([]);
-            data.commentaries.rows.filter(commentary => !commentary.commentaryId).forEach(commentary => {
-                setCommentaries(lastCommentaries =>
-                    [...lastCommentaries, { ...commentary, replies: [] }]
-                );
-            });
-            data.commentaries.rows.filter(commentary => commentary.commentaryId).forEach(commentary => {
-                setCommentaries(lastCommentaries =>
-                    lastCommentaries.map(
-                        comment => comment.id === commentary.commentaryId
-                            ? { ...comment, replies: [...comment.replies, commentary] }
-                            : comment
-                    )
-                );
-            });
-            data.commentaries.rows.forEach(commentary => {
-                addAnswer(commentary.id);
-            });
-        }).finally(() => setLoading(false));
-    }, []);
-
     const addNewCommentary = (commentaryBody, commentaryId) => {
         if (commentaryBody.length < 5) {
             setCommentaryError("Коментар має містити більше 4-х символів!");
         } else {
             setCommentaryError("");
             commentaryBodyInput.current.textContent = "";
-            createCommentary("pofig", commentaryBody, merchId, commentaryId);
+            createCommentary(commentaryBody, merchId, commentaryId);
         };
     };
 
     const addNewAnswer = (commentaryId) => {
-        console.log(commentaryId)
-        addNewCommentary(commentaryAnswers.find((answer) => answer.id === commentaryId).body, commentaryId);
+        addNewCommentary(
+            commentaryAnswers.find((answer) => answer.id === commentaryId).body, 
+            commentaryId
+        );
         changeAnswer(commentaryId, "body", "");
         changeAnswer(commentaryId, "status", false);
     };
 
     return (
         <>
-            <button onClick={() => console.log(commentaryAnswers)}>qwdqwd</button>
             {loading
                 ?
                 <Loading loading={loading} />

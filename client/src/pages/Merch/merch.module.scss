@@ -1,0 +1,41 @@
+.content {
+    margin: 0px 15vw 0px 15vw;
+    padding: 20px 0px 20px 0px;
+
+    .information {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .generalInformation {
+            min-width: 250px;
+            margin-left: 20px;
+            padding: 20px 20px 20px 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    .informationBlock {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        flex-direction: column;
+        padding: 20px 20px 20px 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+
+    .greenStatus {
+        font-size: 15px;
+        color: #348008;
+    }
+
+    .redStatus {
+        font-size: 15px;
+        color: #9e0a0a;
+    }
+}

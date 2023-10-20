@@ -19,15 +19,15 @@ function App() {
     check().then(data => {
       dispatch(setUserAction(data));
       dispatch(setAuthAction(true));
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <BrowserRouter>
       <Header/>
       <AppRouter/>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

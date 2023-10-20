@@ -5,30 +5,31 @@
     padding: 20px 15vw 20px 20px;
     height: 70vh;
     border-bottom: 1px solid #000000;
-}
 
-.slideInfo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px 20px;
-    font-size: 17px;
-    height: 350px;
-    width: 280px;
-    border-radius: 20px;
-    background-color: rgba(172, 166, 166, 0.884);
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.75);
-}
+    .slideInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px 20px;
+        font-size: 17px;
+        height: 350px;
+        width: 280px;
+        border-radius: 20px;
+        background-color: rgba(172, 166, 166, 0.884);
+        box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.75);
 
-.slideTitle {
-    text-align: center;
-}
+        .slideTitle {
+            text-align: center;
+        }
 
-.slideDescription {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    line-height: 1.5;
+        .slideDescription {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+    }
+
 }
 
 .first,

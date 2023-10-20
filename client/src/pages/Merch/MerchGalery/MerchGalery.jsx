@@ -1,4 +1,4 @@
-import styles from "./merch-galery.module.css"
+import styles from "./merch-galery.module.scss";
 
 const MerchGalery = () => {
     //It's going be bigger

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import {fetchOneMerch } from "../../http/merchAPI";
+import { fetchOneMerch } from "../../http/merchAPI";
 import { fetchCharacteristic } from "../../http/characteristicAPI";
 import { fetchOneCategory } from "../../http/categoryAPI";
 import { fetchOneCompany } from "../../http/companyAPI";
@@ -12,7 +12,7 @@ import Commentaries from "./Commentaries/Commentaries";
 import MerchGalery from "./MerchGalery/MerchGalery";
 import MerchInfo from "./MerchInfo/MerchInfo";
 
-import styles from "./merch.module.css";
+import styles from "./merch.module.scss";
 
 
 const Merch = () => {
@@ -55,9 +55,10 @@ const Merch = () => {
                                 {merch.name}
                             </h1>
                             <span
-                                className={merch.status
-                                    ? styles.greenStatus
-                                    : styles.redStatus
+                                className={
+                                    merch.status
+                                        ? styles.greenStatus
+                                        : styles.redStatus
                                 }
                             >
                                 {merch.status ? "В наявності" : "Немає в наявності"}

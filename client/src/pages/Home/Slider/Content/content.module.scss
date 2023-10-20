@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px 10vw 0px 10vw;
+    padding: 20px 10vw 30px 10vw;
+    background: #ffffff;
+
+    .row {
+        display: inline-block;
+        margin: 30px 0px 30px 0px;
+        font-size: 19px;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .leftImage {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .rightImage {
+        float: right;
+        margin-left: 10px;
+    }
+
+    .shedule {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sheduleRow {
+        display: inline-block;
+        text-align: center;
+        list-style-type: none;
+    }
+
+    .map {
+        width: 60vw;
+        height: 300px;
+        border: 1px solid black;
+    }
+}

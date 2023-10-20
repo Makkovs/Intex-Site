@@ -1,4 +1,4 @@
-import styles from "./merch-info.module.css";
+import styles from "./merch-info.module.scss";
 
 const MerchInfo = ({ characteristics, category, company }) => {
     
