@@ -4,6 +4,7 @@ export interface IMerch {
     desc: string;
     price: number;
     status: boolean;
+    img: string | null;
     categoryId: number;
     companyId: number;
 };

@@ -51,7 +51,9 @@ const Merch: FC = () => {
                 :
                 <>
                     <div className={styles.information}>
-                        <MerchGalery />
+                        <MerchGalery 
+                            img={merch!.img}
+                        />
                         <div className={styles.generalInformation}>
                             <h1 className={styles.name}>
                                 {merch?.name}

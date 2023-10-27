@@ -8,6 +8,7 @@ interface MerchData {
     status?: boolean;
     limit?: number;
     page?: number;
+    img?: File | null;
     categoryId?: number | null;
     companyId?: number | null;
 }
@@ -21,12 +22,20 @@ interface CharacteristicData {
 export const createMerch = async <T extends MerchData>(
     name: T["name"], desc: T["desc"],
     price: T["price"], status: T["status"],
-    categoryId: T["categoryId"], companyId: T["companyId"]
+    img: T["img"], categoryId: T["categoryId"], 
+    companyId: T["companyId"]
 ) => {
-    const { data } = await $authHost.post("api/merch/create", {
-        name, desc, price,
-        status, categoryId, companyId
-    });
+
+    const formData = new FormData();
+    formData.append("name", String(name));
+    formData.append("desc", String(desc));
+    formData.append("price", String(price));
+    formData.append("status", String(status));
+    formData.append("categoryId", String(categoryId));
+    formData.append("companyId", String(companyId));
+    formData.append("img", img ? img : "");
+    
+    const { data } = await $authHost.post("api/merch/create", formData);
     return data;
 };
 

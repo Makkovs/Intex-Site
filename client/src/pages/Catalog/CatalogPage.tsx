@@ -87,6 +87,7 @@ const CatalogPage: FC = () => {
                                         ? companies.find(company => company.id === merch.companyId)?.name || "-"
                                         : "-"
                                         }`}
+                                    img={merch.img}
                                     id={merch.id}
                                     key={merch.id}
                                 />

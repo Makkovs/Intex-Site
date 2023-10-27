@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { MERCH_PAGE_ROUTE } from "../../../utils/consts";
+import { MERCH_PAGE_ROUTE, REACT_APP_API_URL } from "../../../utils/consts";
 
 import Button from "../../../components/UI/Button/Button";
 
@@ -11,20 +11,30 @@ interface CatalogMerchProps {
     name: string;
     status: boolean;
     price: number;
+    img: string | null;
     categoryName: string;
     companyName: string;
     id: number;
 };
 
-const CatalogMerch: FC<CatalogMerchProps> = ({ name, status, price, categoryName, companyName, id }) => {
+const CatalogMerch: FC<CatalogMerchProps> = ({ name, status, price, img, categoryName, companyName, id }) => {
 
     return (
         <div className={styles.merch}>
-            <img
-                className={styles.image}
-                src="./gray-img.png"
-                alt={name}
-            />
+            {img
+                ?
+                <img
+                    className={styles.image}
+                    src={REACT_APP_API_URL + img}
+                    alt={name}
+                />
+                :
+                <img
+                    className={styles.image}
+                    src="./gray-img.png"
+                    alt={name}
+                />
+            }
             <h3 className={styles.name}>
                 {name}
             </h3>

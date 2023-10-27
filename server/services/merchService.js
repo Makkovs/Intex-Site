@@ -2,8 +2,8 @@ const { Merch } = require("../models/models");
 
 class MerchService {
 
-    async createMerch(name, desc, price, status) {
-        const merch = await Merch.create({ name, desc, price, status });
+    async createMerch(name, desc, price, status, img) {
+        const merch = await Merch.create({ name, desc, price, status, img });
         return merch;
     };
 

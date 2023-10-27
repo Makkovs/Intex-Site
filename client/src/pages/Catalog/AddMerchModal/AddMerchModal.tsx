@@ -23,6 +23,7 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
     const [desc, setDesc] = useState<string>("");
     const [price, setPrice] = useState<number>(0);
     const [status, setStatus] = useState<boolean>(true);
+    const [file, setFile] = useState<File | null>(null);
 
     const [companyId, setCompanyId] = useState<number | string>("");
     const [categoryId, setCategoryId] = useState<number | string>("");
@@ -52,11 +53,15 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
         ));
     };
 
+    const selectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFile(e.target.files ? e.target.files[0] : null);
+    };
+
     const addMerch = () => {
         const newCompanyId: number | null = companyId == "" ? null : Number(companyId);
         const newCategoryId: number | null = categoryId == "" ? null : Number(categoryId);
 
-        createMerch(name, desc, price, status, newCompanyId, newCategoryId).then(data =>
+        createMerch(name, desc, price, status, file, newCompanyId, newCategoryId).then(data =>
             characteristics.map((characteristics: ICharacteristic) => 
                 createCharacteristic(characteristics.name, characteristics.body, data.merch.id)
             )
@@ -123,6 +128,8 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
                         </option>
                     )}
                 </select>
+                Обрати зображення для товару
+                <input type="file" onChange={selectFile}/>
                 {characteristics.map((characteristic: ICharacteristic) =>
                     <div key={characteristic.id}>
                         <Input

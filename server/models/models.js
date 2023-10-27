@@ -25,7 +25,8 @@ const Merch = sequelize.define("merch", {
     name: { type: DataTypes.STRING },
     desc: { type: DataTypes.STRING },
     price: { type: DataTypes.INTEGER, allowNull: false },
-    status: { type: DataTypes.BOOLEAN, allowNull: false }
+    status: { type: DataTypes.BOOLEAN, allowNull: false },
+    img: { type: DataTypes.STRING }
 });
 
 const Characteristic = sequelize.define("characteristic", {
@@ -41,7 +42,7 @@ const Commentary = sequelize.define("commentary", {
 });
 
 const Basket = sequelize.define("basket", {
-    id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true}, 
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
 
 User.hasMany(Commentary);

@@ -1,3 +1,5 @@
+const path = require("path");
+const uuid = require("uuid");
 const merchService = require("../services/merchService");
 const errorHandler = require("../utils/errorHandler");
 
@@ -6,7 +8,15 @@ class MerchController {
     async createMerch(req, res) {
         errorHandler(async () => {
             const { name, desc, price, status } = req.body;
-            const merch = await merchService.createMerch(name, desc, price, status);
+
+            let fileName = null;
+            if (req.files){
+                const { img } = req.files;
+                fileName = uuid.v4() + ".jpg";
+                img.mv(path.resolve(__dirname, "..", 'static', fileName));
+            };
+
+            const merch = await merchService.createMerch(name, desc, price, status, fileName);
 
             return res.json({ merch });
         })(req, res);
