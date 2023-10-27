@@ -1,0 +1,16 @@
+.catalog {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5vw 20px 5vw;
+
+    .content {
+        display: flex;
+        line-height: 1.5;
+
+        .merchCatalog {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 20px 20px 70px;
+        }
+    }
+}
