@@ -23,7 +23,7 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
     const [desc, setDesc] = useState<string>("");
     const [price, setPrice] = useState<number>(0);
     const [status, setStatus] = useState<boolean>(true);
-    const [file, setFile] = useState<File | null>(null);
+    const [files, setFiles] = useState<Array<File>>([]);
 
     const [companyId, setCompanyId] = useState<number | string>("");
     const [categoryId, setCategoryId] = useState<number | string>("");
@@ -54,15 +54,23 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
     };
 
     const selectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFile(e.target.files ? e.target.files[0] : null);
+        if (e.target.files) {
+            if (!files.includes(e.target.files[0])){
+                setFiles([...files, e.target.files[0]]);
+            };
+        };
+    };
+
+    const unSelectFile = (fileLastModified: number) => {
+        setFiles(files.filter((file: File) => file.lastModified !== fileLastModified));
     };
 
     const addMerch = () => {
         const newCompanyId: number | null = companyId == "" ? null : Number(companyId);
         const newCategoryId: number | null = categoryId == "" ? null : Number(categoryId);
 
-        createMerch(name, desc, price, status, file, newCompanyId, newCategoryId).then(data =>
-            characteristics.map((characteristics: ICharacteristic) => 
+        createMerch(name, desc, price, status, files, newCompanyId, newCategoryId).then(data =>
+            characteristics.map((characteristics: ICharacteristic) =>
                 createCharacteristic(characteristics.name, characteristics.body, data.merch.id)
             )
         ).finally(() => setVisible(false));
@@ -128,8 +136,24 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
                         </option>
                     )}
                 </select>
-                Обрати зображення для товару
-                <input type="file" onChange={selectFile}/>
+                Обрати зображення для товару:
+                {files.map(file => 
+                    <span className={styles.addedFile} key={file.name}>
+                        Додано:
+                        <span className={styles.fileName}>
+                            {file.name}
+                        </span> 
+                        <span
+                            className={styles.deleteButton}
+                            onClick={() => unSelectFile(file.lastModified)}
+                        >
+                            X
+                        </span>
+                    </span>
+                )}
+                {files.length < 4 &&
+                    <input type="file" onChange={selectFile} />
+                }
                 {characteristics.map((characteristic: ICharacteristic) =>
                     <div key={characteristic.id}>
                         <Input

@@ -9,14 +9,20 @@ class MerchController {
         errorHandler(async () => {
             const { name, desc, price, status } = req.body;
 
-            let fileName = null;
+            let fileNames = null;
             if (req.files){
-                const { img } = req.files;
-                fileName = uuid.v4() + ".jpg";
-                img.mv(path.resolve(__dirname, "..", 'static', fileName));
+                let { img } = req.files;
+                fileNames = []
+                if (!Array.isArray(img)){
+                    img = [img];
+                };
+                for (let i = 0; i < img.length; i++){
+                    let fileName = uuid.v4() + ".jpg";
+                    img[i].mv(path.resolve(__dirname, "..", 'static', fileName));
+                    fileNames.push(fileName);
+                };
             };
-
-            const merch = await merchService.createMerch(name, desc, price, status, fileName);
+            const merch = await merchService.createMerch(name, desc, price, status, fileNames);
 
             return res.json({ merch });
         })(req, res);

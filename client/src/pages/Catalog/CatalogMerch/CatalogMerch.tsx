@@ -19,13 +19,22 @@ interface CatalogMerchProps {
 
 const CatalogMerch: FC<CatalogMerchProps> = ({ name, status, price, img, categoryName, companyName, id }) => {
 
+    let firstImg = null;
+    if (img){
+        const parsed = JSON.parse(img);
+        console.log(parsed)
+        if (Array.isArray(parsed)){
+            firstImg = parsed[0];
+        };
+    };
+
     return (
         <div className={styles.merch}>
-            {img
+            {firstImg
                 ?
                 <img
                     className={styles.image}
-                    src={REACT_APP_API_URL + img}
+                    src={REACT_APP_API_URL + firstImg}
                     alt={name}
                 />
                 :

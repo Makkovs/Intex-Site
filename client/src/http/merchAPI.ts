@@ -8,7 +8,7 @@ interface MerchData {
     status?: boolean;
     limit?: number;
     page?: number;
-    img?: File | null;
+    img?: Array<File>;
     categoryId?: number | null;
     companyId?: number | null;
 }
@@ -33,8 +33,9 @@ export const createMerch = async <T extends MerchData>(
     formData.append("status", String(status));
     formData.append("categoryId", String(categoryId));
     formData.append("companyId", String(companyId));
-    formData.append("img", img ? img : "");
-    
+    img?.forEach((value: File) => 
+        formData.append("img", value)
+    );
     const { data } = await $authHost.post("api/merch/create", formData);
     return data;
 };

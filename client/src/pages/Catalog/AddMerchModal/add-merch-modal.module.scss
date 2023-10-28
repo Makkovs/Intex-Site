@@ -14,4 +14,22 @@
         border: 1px solid black;
         padding: 5px 5px 5px 5px;
     }
+
+    .addedFile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(41, 41, 41);
+
+        .fileName {
+            margin-left: 10px;
+            font-size: 18px;
+            color: black;
+        }
+
+        .deleteButton {
+            color: rgb(131, 2, 2);
+            cursor: pointer;
+        }
+    }
 }
