@@ -1,9 +1,11 @@
+@import "../../../variables.scss";
+
 .galery {
     display: flex;
     align-items: center;
     justify-content: left;
     padding: 20px 20px 20px 20px;
-    background: #ffffff;
+    background: $content-background;
     border-radius: 10px;
     height: 400px;
     width: 800px;

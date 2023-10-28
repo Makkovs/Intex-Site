@@ -1,8 +1,10 @@
+@import "../../variables.scss";
+
 .footer {
     border-top: 1px solid black;
     padding: 10px 10px;
     text-align: center;
-    background: #253238;
+    background: $second-background-color;
     color: #ffffff;
     font-size: 15px;
     position: relative;

@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .informationBlock {
     display: flex;
     justify-content: center;
@@ -7,7 +9,7 @@
     padding: 20px 20px 20px 20px;
     margin-top: 20px;
     border-radius: 10px;
-    background: #ffffff;
+    background: $content-background;
 
     .row {
         display: flex;

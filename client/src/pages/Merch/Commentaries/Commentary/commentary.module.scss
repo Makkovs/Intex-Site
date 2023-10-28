@@ -1,8 +1,10 @@
+@import "../../../../variables.scss";
+
 .commentary {
     display: flex;
     align-items: center;
     margin: 20px 0px 20px 0px;
-    background: #ffffff;
+    background: $content-background;
     border-radius: 20px;
     padding: 20px 20px 20px 20px;
 }

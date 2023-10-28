@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.basket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5vw 5vw 5vw 5vw;
+
+    .basketItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $content-background;
+        padding: 15px 30px;
+        border-radius: 20px;
+        min-width: 40vw;
+        margin-bottom: 20px;
+
+        .image img {
+            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+    }
+}

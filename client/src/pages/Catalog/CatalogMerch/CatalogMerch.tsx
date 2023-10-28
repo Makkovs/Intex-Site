@@ -22,7 +22,6 @@ const CatalogMerch: FC<CatalogMerchProps> = ({ name, status, price, img, categor
     let firstImg = null;
     if (img){
         const parsed = JSON.parse(img);
-        console.log(parsed)
         if (Array.isArray(parsed)){
             firstImg = parsed[0];
         };

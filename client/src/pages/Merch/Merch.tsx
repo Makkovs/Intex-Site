@@ -11,6 +11,7 @@ import Button from "../../components/UI/Button/Button";
 import MerchGalery from "./MerchGalery/MerchGalery";
 import MerchInfo from "./MerchInfo/MerchInfo";
 import Commentaries from "./Commentaries/Commentaries";
+import { addToBasket } from "../../http/basketAPI";
 
 const Merch: FC = () => {
 
@@ -70,7 +71,7 @@ const Merch: FC = () => {
                             <h1 className={styles.price}>
                                 {merch?.price}грн
                             </h1>
-                            <Button>
+                            <Button onClick={() => addToBasket(merch?.id)}>
                                 Додати у кошик
                             </Button>
                             <Button margin="0px 5px 0px 0px">

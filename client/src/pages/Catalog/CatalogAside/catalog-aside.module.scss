@@ -1,6 +1,8 @@
+@import "../../../variables.scss";
+
 .filters {
     padding: 10px 50px 20px 50px;
-    background: #ffffff;
+    background: $content-background;
     border-radius: 10px;
 
     .title {

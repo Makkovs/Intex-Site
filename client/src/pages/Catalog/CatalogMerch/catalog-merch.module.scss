@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .merch {
     display: flex;
     align-items: center;
@@ -10,7 +12,7 @@
     height: 360px;
     width: 200px;
     border-radius: 10px;
-    background: #ffffff;
+    background: $content-background;
     transition: background 0.2s;
 
     &:hover {
