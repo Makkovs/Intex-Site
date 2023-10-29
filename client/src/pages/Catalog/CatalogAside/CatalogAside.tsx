@@ -30,7 +30,7 @@ const CatalogAside: FC<CatalogAsideProps> = ({
 
     const addCompanyFilter = (companyId: number, checked: boolean) => {
         if (checked) {
-            setCategoryFilters([...companyFilters, companyId]);
+            setCompanyFilters([...companyFilters, companyId]);
         }else {
             setCompanyFilters(companyFilters.filter(id => id !== companyId));
         };

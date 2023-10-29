@@ -42,7 +42,7 @@ const Merch: FC = () => {
                 ? fetchOneCompany(data.merch.companyId).then(
                     dataCompany => setMerchCompany(dataCompany.company.name)
                 )
-                : setMerchCategory("Не вказано");
+                : setMerchCompany("Не вказано");
         }).finally(() => setLoading(false));
     }, []);
 
