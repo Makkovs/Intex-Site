@@ -1,12 +1,14 @@
 import { FC, useRef, useState } from "react";
 
-import styles from "./commentaries.module.scss";
 import useCommentaries from "../../../hooks/useCommentaries";
 import { createCommentary } from "../../../http/commentaryAPI";
 import { ICommentaryAnswer, ICommentaryWithReplies } from "../../../types/merchTypes";
+
 import Button from "../../../components/UI/Button/Button";
 import Loading from "../../../components/UI/Loading/Loading";
 import Commentary from "./Commentary/Commentary";
+
+import styles from "./commentaries.module.scss";
 
 interface CommentariesProps {
     merchId: number;
@@ -43,7 +45,7 @@ const Commentaries: FC<CommentariesProps> = ({ merchId }) => {
 
     const addNewAnswer = (commentaryId: number) => {
         if (commentaryAnswers) {
-            const body:any = commentaryAnswers.find((answer: ICommentaryAnswer) => answer.id === commentaryId)?.body;
+            const body: any = commentaryAnswers.find((answer: ICommentaryAnswer) => answer.id === commentaryId)?.body;
             addNewCommentary(
                 body ? body : "",
                 commentaryId

@@ -4,7 +4,7 @@ import { IMerch } from "../types/merchTypes";
 
 const useFilteredMerch = (
     searchFilter: string, categoryFilters: number[], companyFilters: number[],
-    merch: IMerch[], priceSort: string, setFilteredMerch: (newState: any) => void
+    merch: IMerch[], priceSort: string, setFilteredMerch: (newState: IMerch[]) => void
 ) => {
     
     useEffect(() => {
