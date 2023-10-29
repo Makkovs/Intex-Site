@@ -3,7 +3,8 @@ const { Merch } = require("../models/models");
 class MerchService {
 
     async createMerch(name, desc, price, status, img) {
-        const merch = await Merch.create({ name, desc, price, status, img: JSON.stringify(img) });
+        const imgData = img === null ? null : JSON.stringify(img);
+        const merch = await Merch.create({ name, desc, price, status, img: imgData });
         return merch;
     };
 
