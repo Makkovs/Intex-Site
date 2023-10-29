@@ -18,7 +18,7 @@ const AddCompanyModal:FC<AddCompanyModalProps> = ({visible, setVisible}) => {
     const [name, setName] = useState<string>("");
     
     const addCompany = () => {
-        createCompany(name);
+        createCompany(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`);
         setVisible(false)
     }
     

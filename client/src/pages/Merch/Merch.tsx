@@ -1,17 +1,19 @@
 import { FC, useEffect, useState } from "react";
-
-import styles from "./merch.module.scss";
 import { useParams } from "react-router-dom";
-import { ICharacteristic, IMerch } from "../../types/merchTypes";
+
 import { fetchCharacteristic, fetchOneMerch } from "../../http/merchAPI";
+import { ICharacteristic, IMerch } from "../../types/merchTypes";
 import { fetchOneCategory } from "../../http/categoryAPI";
 import { fetchOneCompany } from "../../http/companyAPI";
+import { addToBasket } from "../../http/basketAPI";
+
 import Loading from "../../components/UI/Loading/Loading";
 import Button from "../../components/UI/Button/Button";
 import MerchGalery from "./MerchGalery/MerchGalery";
 import MerchInfo from "./MerchInfo/MerchInfo";
 import Commentaries from "./Commentaries/Commentaries";
-import { addToBasket } from "../../http/basketAPI";
+
+import styles from "./merch.module.scss";
 
 const Merch: FC = () => {
 

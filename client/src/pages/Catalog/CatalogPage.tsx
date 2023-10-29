@@ -23,7 +23,7 @@ const CatalogPage: FC = () => {
     const [companies, setCompanies] = useState<ICompany[]>([]);
 
     const [searchFilter, setSearchFilter] = useState<string>("");
-    const [priceSort, setPriceSort] = useState<string>("CHEAP");
+    const [priceSort, setPriceSort] = useState<string>("");
     const [categoryFilters, setCategoryFilters] = useState<number[]>([]);
     const [companyFilters, setCompanyFilters] = useState<number[]>([]);
 

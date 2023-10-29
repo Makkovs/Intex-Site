@@ -18,7 +18,7 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({ visible, setVisible }) =>
     const [name, setName] = useState<string>("");
 
     const addCategory = () => {
-        createCategory(name);
+        createCategory(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`);
         setVisible(false);
     };
 

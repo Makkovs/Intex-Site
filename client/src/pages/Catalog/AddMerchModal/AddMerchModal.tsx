@@ -68,8 +68,7 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
     const addMerch = () => {
         const newCompanyId: number | null = companyId == "" ? null : Number(companyId);
         const newCategoryId: number | null = categoryId == "" ? null : Number(categoryId);
-
-        createMerch(name, desc, price, status, files, newCompanyId, newCategoryId).then(data =>
+        createMerch(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`, desc, price, status, files, newCompanyId, newCategoryId).then(data =>
             characteristics.map((characteristics: ICharacteristic) =>
                 createCharacteristic(characteristics.name, characteristics.body, data.merch.id)
             )
