@@ -9,20 +9,20 @@ import { HOME_ROUTE, CATALOGE_ROUTE, AUTH_ROUTE } from "../../utils/consts";
 
 import styles from "./header.module.scss";
 
-const Header:FC = () => {
+const Header: FC = () => {
     const location = useLocation();
     const isAuth = useTypedSelector(state => state.userReducer.isAuth);
     const dispatch = useDispatch();
 
-    const logOut = ():void => {
+    const logOut = (): void => {
         dispatch(setAuthAction(false));
-        localStorage.setItem("toke", "");
+        localStorage.setItem("token", "");
     };
 
     return (
         <header className={styles.header}>
-            <NavLink 
-                className={styles.logo} 
+            <NavLink
+                className={styles.logo}
                 to={HOME_ROUTE}
             >
                 <h1>INTEX</h1>
@@ -48,7 +48,7 @@ const Header:FC = () => {
                 </NavLink>
                 {isAuth
                     ?
-                    <NavLink 
+                    <NavLink
                         className={styles.link}
                         onClick={logOut}
                         to={HOME_ROUTE}
@@ -68,10 +68,13 @@ const Header:FC = () => {
                 }
                 <div className={styles.contacts}>
                     <span>mail123@gmail.com</span>
-                    <br />
                     <span>+380123456789</span>
                 </div>
             </nav>
+            <div className={styles.contactsPhone}>
+                <span>mail123@gmail.com</span>
+                <span>+380123456789</span>
+            </div>
         </header>
     );
 };

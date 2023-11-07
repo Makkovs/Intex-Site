@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 import { fetchCharacteristic, fetchOneMerch } from "../../http/merchAPI";
 import { ICharacteristic, IMerch } from "../../types/merchTypes";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { fetchOneCategory } from "../../http/categoryAPI";
 import { fetchOneCompany } from "../../http/companyAPI";
 import { addToBasket } from "../../http/basketAPI";
@@ -18,6 +20,7 @@ import styles from "./merch.module.scss";
 const Merch: FC = () => {
 
     const { id } = useParams();
+    const isAuth = useTypedSelector(state => state.userReducer.isAuth);
 
     const [merch, setMerch] = useState<IMerch>();
     const [merchCategory, setMerchCategory] = useState<string>("");
@@ -25,6 +28,9 @@ const Merch: FC = () => {
 
     const [characteristics, setCharacteristics] = useState<ICharacteristic[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+
+    const addBasketToast = () => toast("Додано у кошик")
+    const addBasketAuth = () => toast("Авторизуйтесь, щоб додавати товари до кошику")
 
     useEffect(() => {
         fetchCharacteristic(Number(id)).then(data => {
@@ -45,6 +51,15 @@ const Merch: FC = () => {
                 : setMerchCompany("Не вказано");
         }).finally(() => setLoading(false));
     }, []);
+
+    const addMerchToBasket = () => {
+        if (isAuth) {
+            addToBasket(merch?.id);
+            addBasketToast();
+        }else {
+            addBasketAuth();
+        }
+    }
 
     return (
         <main className={styles.content}>
@@ -73,10 +88,11 @@ const Merch: FC = () => {
                             <h1 className={styles.price}>
                                 {merch?.price}грн
                             </h1>
-                            <Button onClick={() => addToBasket(merch?.id)}>
+                            <Button margin="0px 10px 0px 0px" onClick={addMerchToBasket}>
                                 Додати у кошик
                             </Button>
-                            <Button margin="0px 5px 0px 0px">
+                            <Toaster/>
+                            <Button margin="10px 0px 0px 0px">
                                 Замовити
                             </Button>
                         </div>

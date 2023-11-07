@@ -3,16 +3,16 @@
 .header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5px 10vw;
 
+    padding: 5px 10vw;
     color: #ffffff;
     background: $second-background-color;
     border-bottom: 1px solid #000000;
 
     .logo {
         color: #ffffff;
-        font-size: 28px;
         user-select: none;
         text-decoration: none;
     }
@@ -20,13 +20,13 @@
     .navigation {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+
 
         .link {
             display: inline-block;
-            margin-right: 40px;
 
             color: #ffffff;
-            font-size: 16px;
             text-decoration: none;
 
             &:hover {
@@ -39,9 +39,51 @@
             color: #dadada;
             text-decoration: underline;
         }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .header {
+        flex-direction: column;
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .link {
+            margin-right: 20px;
+        }
+
+        .contactsPhone {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+            margin-top: 10px;
+        }
 
         .contacts {
-            font-size: 15px;
+            display: none;
         }
+    }
+
+}
+
+@media screen and (min-width: 650px) {
+    .logo {
+        font-size: 28px;
+    }
+
+    .link {
+        margin-right: 40px;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+    }
+
+    .contactsPhone {
+        display: none;
     }
 }

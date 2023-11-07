@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { createCategory } from "../../../http/categoryAPI";
 
@@ -16,10 +17,12 @@ interface AddCategoryModalProps {
 const AddCategoryModal: FC<AddCategoryModalProps> = ({ visible, setVisible }) => {
 
     const [name, setName] = useState<string>("");
+    const addCategoryToast = () => toast("Категорія додана");
 
     const addCategory = () => {
-        createCategory(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`);
-        setVisible(false);
+        createCategory(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`)
+        .finally(() => addCategoryToast());
+        setName("");
     };
 
     return (
@@ -39,6 +42,7 @@ const AddCategoryModal: FC<AddCategoryModalProps> = ({ visible, setVisible }) =>
                     Додати
                 </Button>
             </div>
+            <Toaster />
         </Modal>
     );
 };

@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { createCompany } from "../../../http/companyAPI";
 
@@ -16,11 +17,13 @@ interface AddCompanyModalProps {
 const AddCompanyModal:FC<AddCompanyModalProps> = ({visible, setVisible}) => {
     
     const [name, setName] = useState<string>("");
-    
+    const addCompanyToast = () => toast("Компанія додана!");
+
     const addCompany = () => {
-        createCompany(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`);
-        setVisible(false)
-    }
+        createCompany(name.length > 0 ? name : `Без назви ${String(Date.now()).slice(-3)}`)
+        .finally(() => addCompanyToast());
+        setName("");
+    };
     
     return (
         <Modal visible={visible} setVisible={setVisible}>
@@ -39,6 +42,7 @@ const AddCompanyModal:FC<AddCompanyModalProps> = ({visible, setVisible}) => {
                     Додати
                 </Button>
             </div>
+            <Toaster />
         </Modal>
     );
 };

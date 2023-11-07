@@ -9,6 +9,7 @@ import Loading from "../../../components/UI/Loading/Loading";
 import Commentary from "./Commentary/Commentary";
 
 import styles from "./commentaries.module.scss";
+import toast, { Toaster } from "react-hot-toast";
 
 interface CommentariesProps {
     merchId: number;
@@ -19,6 +20,8 @@ const Commentaries: FC<CommentariesProps> = ({ merchId }) => {
     const commentaryBodyInput = useRef<HTMLInputElement | null>(null);
     const [commentaryError, setCommentaryError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(true);
+
+    const addCommentaryToast = () => toast("Коментар додано")
 
     const [
         commentaries, setCommentaries,
@@ -40,6 +43,7 @@ const Commentaries: FC<CommentariesProps> = ({ merchId }) => {
             setCommentaryError("");
             commentaryBodyInput!.current!.textContent = "";
             createCommentary(commentaryBody, merchId, commentaryId);
+            addCommentaryToast();
         };
     };
 
@@ -126,8 +130,8 @@ const Commentaries: FC<CommentariesProps> = ({ merchId }) => {
                                         Додати
                                     </Button>
                                 </div>
-
                             }
+                            <Toaster />
                         </div>
                     )}
                 </>

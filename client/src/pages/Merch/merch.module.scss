@@ -4,8 +4,7 @@
 
     .information {
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+
 
         .generalInformation {
             min-width: 250px;
@@ -37,5 +36,32 @@
     .redStatus {
         font-size: 15px;
         color: #9e0a0a;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .information {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .generalInformation {
+        margin-top: 10px;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+
+    .price {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .information {
+        justify-content: space-between;
+        align-items: flex-start;
     }
 }

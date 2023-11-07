@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 20px 15vw 20px 20px;
     height: 70vh;
     border-bottom: 1px solid #000000;
 
@@ -61,5 +60,17 @@
 
     100% {
         background-color: #a8a8a8;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .homeSlide {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .homeSlide {
+        padding: 20px 15vw 20px 20px;
     }
 }

@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import { createCharacteristic, createMerch } from "../../../http/merchAPI";
 import { ICategory, ICharacteristic, ICompany } from "../../../types/merchTypes";
@@ -29,6 +30,8 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
     const [categoryId, setCategoryId] = useState<number | string>("");
 
     const [characteristics, setCharacteristics] = useState<ICharacteristic[]>([]);
+
+    const addMerchToast = () => toast("Товар доданий");
 
     const convertToBoolean = (value: string) => value === "true"; //true / false 
 
@@ -72,7 +75,10 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
             characteristics.map((characteristics: ICharacteristic) =>
                 createCharacteristic(characteristics.name, characteristics.body, data.merch.id)
             )
-        ).finally(() => setVisible(false));
+        ).finally(() => addMerchToast());
+        setName("");
+        setDesc("");
+        setFiles([]);
     };
 
     return (
@@ -188,6 +194,7 @@ const AddMerchModal: FC<AddMerchModalProps> = ({ visible, setVisible, categories
                     Створити товар
                 </Button>
             </div>
+            <Toaster />
         </Modal>
     );
 };
