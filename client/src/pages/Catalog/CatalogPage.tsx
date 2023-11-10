@@ -71,7 +71,7 @@ const CatalogPage: FC = () => {
                     />
                     {filteredMerch.length < 1 && !loading
                         ?
-                        <>Ми не знайшли жодного товару . . .</>
+                        <span className={styles.notFound}>Ми не знайшли жодного товару . . .</span>
                         :
                         <section className={styles.merchCatalog}>
                             {filteredMerch.map((merch) =>

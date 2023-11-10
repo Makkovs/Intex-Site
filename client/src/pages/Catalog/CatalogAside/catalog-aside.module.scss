@@ -1,17 +1,43 @@
 @import "../../../variables.scss";
 
-.filters {
-    padding: 10px 50px 20px 50px;
-    background: $content-background;
-    border-radius: 10px;
+@media screen and (min-width: 650px) {
+    .asideButton {
+        display: none;
 
-    .title {
-        margin: 10px 0px 0px 0px;
-        font-size: 23px;
+        input {
+            display: none;
+        }
     }
 
-    .filter {
-        display: block;
-        margin: 10px 0px 0px 0px;
+    .filtersPhone {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .merchCatalog {
+        padding: 20px 20px 20px 20px;
+    }
+
+    .filtersPC {
+        display: none;
+    }
+
+    .asideButton {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+
+        .asideButton_line {
+            display: block;
+            background: #000000;
+            height: 5px;
+            width: 30px;
+            margin-top: 5px;
+        }
+
+        input {
+            display: none;
+        }
     }
 }

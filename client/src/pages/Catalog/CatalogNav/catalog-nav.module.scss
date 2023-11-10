@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 50px 200px 50px 30px;
 
     .radio {
@@ -55,6 +56,16 @@
                 border-radius: 20%;
                 background: #ffffff;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .search {
+        margin-top: 20px;
+
+        .searchInput {
+            max-width: 220px;
         }
     }
 }

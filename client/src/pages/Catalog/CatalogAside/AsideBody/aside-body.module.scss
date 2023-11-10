@@ -1,0 +1,17 @@
+@import "../../../../variables.scss";
+
+.filters {
+    padding: 10px 50px 20px 50px;
+    background: $content-background;
+    border-radius: 10px;
+
+    .title {
+        margin: 10px 0px 0px 0px;
+        font-size: 23px;
+    }
+
+    .filter {
+        display: block;
+        margin: 10px 0px 0px 0px;
+    }
+}
